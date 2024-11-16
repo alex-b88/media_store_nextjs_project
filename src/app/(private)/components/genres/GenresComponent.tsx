@@ -1,22 +1,25 @@
 import React from 'react';
-import {IGenre} from "@/app/(private)/models/IGenre";
+import {IGenreModel} from "@/app/(private)/models/IGenreModel";
 import "./genres-list-styles.css"
-import {options} from "@/app/(private)/services/settings";
+import {apiService} from "@/app/(private)/services/api-services";
 
 
 
 const GenresComponent = async () => {
 
-    const genresList = await fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
-        .then(res => res.json())
-        .catch(err => console.error(err));
-
-
     return (
         <div className={"genres-list"}>
-            {
-                genresList.genres.map((obj: IGenre) => <div key={obj.id}>{obj.name}</div>)
-            }
+            <span>genres</span>
+            <ul>
+                {
+                    apiService.genres.getMovieAll().then(res =>
+                        res.map((obj: IGenreModel) => (
+
+                            <li key={obj.id}><span>{obj.name}</span></li>
+
+                        )))
+                }
+            </ul>
         </div>
     );
 };

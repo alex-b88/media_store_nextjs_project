@@ -1,5 +1,5 @@
 
-export interface IGenre {
+export interface IGenreModel {
     id: number;
     name: string;
 }

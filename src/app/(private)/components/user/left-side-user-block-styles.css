@@ -1,0 +1,15 @@
+
+.left-side-user-block {
+    margin-left: 25px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.left-side-user-block img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
