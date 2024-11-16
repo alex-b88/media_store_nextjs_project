@@ -38,7 +38,7 @@ body {
     color: aliceblue;
 }
 
-.left-side hr{
+.left-side>hr, .main-page>hr{
     width: 85%;
     height: 2px;
     border: none;

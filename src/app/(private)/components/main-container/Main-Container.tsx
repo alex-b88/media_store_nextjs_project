@@ -4,7 +4,7 @@ import PopularMoviesComponent from "@/app/(private)/components/popular/PopularMo
 const MainContainer = () => {
     return (
         <div className={"main-container"}>
-            main container
+            <hr/>
             <PopularMoviesComponent/>
         </div>
     );

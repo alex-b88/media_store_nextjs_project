@@ -1,0 +1,13 @@
+
+.buttons-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.buttons-section button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}

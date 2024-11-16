@@ -1,8 +1,28 @@
 
 
 .popular-list{
+    position: relative;
     display: flex;
+    flex-direction: column;
     gap: 10px;
+}
+
+.popular-list-objects-container{
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.popular-list-small-navigation>span:first-child{
+    color: #3a3a3a;
+    font-weight: 600;
+}
+
+.popular-list-small-navigation>span:last-of-type{
+    margin-left: 20px;
+    color: dodgerblue;
+    cursor: pointer;
+    font-size: 12px;
 }
 
 .popular-list-image-container{
