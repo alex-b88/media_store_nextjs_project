@@ -1,6 +1,7 @@
 import {apiService} from "@/app/(private)/services/api-services";
 import {imagePath600x900} from "@/app/(private)/services/settings";
 import "./popular-list-component-styles.css"
+import Link from "next/link";
 
 
 const PopularMoviesComponent = async () => {
@@ -11,7 +12,7 @@ const PopularMoviesComponent = async () => {
 
     return (
         <div className={"popular-list"}>
-            <div className={"popular-list-small-navigation"}><span>Popular movies</span><span>See all</span></div>
+            <div className={"popular-list-small-navigation"}><span>Popular movies</span><span><Link href={"/movies/popular-movies"}>See all</Link></span></div>
             <div className={"popular-list-objects-container"}>{
                 moviesSliced.map((obj) => (
                     <div key={obj.id} className={"popular-list-image-container"}>
