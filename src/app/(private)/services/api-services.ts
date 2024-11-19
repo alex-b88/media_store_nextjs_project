@@ -2,7 +2,8 @@ import {options} from "@/app/(private)/services/settings";
 import {IGenreModel} from "@/app/(private)/models/IGenreModel";
 import {IUserModel} from "@/app/(private)/models/IUserModel";
 import {IResponseModel} from "@/app/(private)/models/IResponseModel";
-import {IMovieModel} from "@/app/(private)/models/IMovieModel";
+import {IMovieShortModel} from "@/app/(private)/models/IMovieShortModel";
+import {IMovieFullModel} from "@/app/(private)/models/IMovieFullModel";
 
 export const apiService = {
 
@@ -35,12 +36,33 @@ export const apiService = {
     },
 
     moviesearch: {
-        getPopular: async ():Promise<IResponseModel & {results:IMovieModel[]}> => {
+        getPopular: async ():Promise<IResponseModel & {results:IMovieShortModel[]}> => {
              const response = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&region=ua', options)
                  .then(res => res.json())
                  .catch(err => console.error(err));
              return response;
+        },
+        getTopRatedThisWeek: async ():Promise<IResponseModel & {results:IMovieShortModel[]}> => {
+            const response = await fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&region=ua', options)
+                .then(res => res.json())
+                .catch(err => console.error(err));
+            return response;
+        },
+
+        getOneMovieShort: async (id:string):Promise<IMovieShortModel> => {
+            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US&page=1&region=ua`, options)
+                .then(res => res.json())
+                .catch(err => console.error(err));
+            return response;
+        },
+        getOneMovieFull: async (id:string):Promise<IMovieFullModel> => {
+            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
+                .then(res => res.json())
+                .catch(err => console.error(err));
+            return response;
         }
+
+
     }
 
 }

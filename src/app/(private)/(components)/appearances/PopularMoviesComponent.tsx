@@ -1,6 +1,6 @@
 import {apiService} from "@/app/(private)/services/api-services";
 import {imagePath600x900} from "@/app/(private)/services/settings";
-import "./popular-list-component-styles.css"
+import "./styles/popular-list-component-styles.css"
 import Link from "next/link";
 
 
@@ -16,8 +16,9 @@ const PopularMoviesComponent = async () => {
             <div className={"popular-list-objects-container"}>{
                 moviesSliced.map((obj) => (
                     <div key={obj.id} className={"popular-list-image-container"}>
-                        <img className={"main-paige-poster"} src={imagePath600x900 + obj.poster_path} alt={obj.title}/>
-                        <div className="hover-cover"></div>
+                        <Link href={'/movies/'+obj.id}><img className={"main-paige-poster"} src={imagePath600x900 + obj.poster_path} alt={obj.title}/>
+                            <div className="hover-cover"></div>
+                        </Link>
                     </div>
                 ))
             }</div>

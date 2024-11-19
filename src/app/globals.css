@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-
 body {
   width: 100vw;
   height: 100vh;
@@ -17,7 +16,7 @@ body {
 }
 
 
-.main-page{
+.container{
     margin-top: 30px;
     width: 90%;
     /*min-height: 90%;*/
@@ -38,7 +37,7 @@ body {
     color: aliceblue;
 }
 
-.left-side>hr, .main-page>hr{
+.left-side>hr, .container>hr{
     width: 85%;
     height: 2px;
     border: none;
@@ -48,10 +47,10 @@ body {
 }
 
 
-.main-container{
+.content-container{
     width: 83%;
     /*min-height: 100%;*/
     background-color: rgba(244, 244, 244, 0.96);
     border-radius: 0 40px 40px 0;
-    padding: 30px 50px;
+    padding: 30px 40px;
 }

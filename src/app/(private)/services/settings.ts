@@ -8,3 +8,4 @@ export const options = {
 };
 
 export const imagePath600x900 = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2';
+export const imagePathW600 = 'https://image.tmdb.org/t/p/w500';

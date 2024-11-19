@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import LeftSideComponent from "@/app/(private)/components/left-side/Left-Side-Component";
-import MainContainer from "@/app/(private)/components/main-container/Main-Container";
+import LeftSideComponent from "@/app/(private)/(components)/left-side/Left-Side-Component";
+import MainContainer from "@/app/(private)/page";
 
 
 export const metadata: Metadata = {
@@ -17,10 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-      <div className="main-page">
+      <div className="container">
           <LeftSideComponent/>
-          <MainContainer/>
-          {children}
+          <MainContainer>{children}</MainContainer>
       </div>
 
       </body>

@@ -10,7 +10,7 @@
 .popular-list-objects-container{
     margin-top: 10px;
     display: flex;
-    gap: 5px;
+    gap: 10px;
 }
 
 .popular-list-small-navigation>span:first-child{
@@ -27,8 +27,8 @@
 
 .popular-list-image-container{
     position: relative;
-    width: 120px;
-    height: 180px;
+    width: 100px;
+    height: 150px;
     cursor: pointer;
 }
 
@@ -36,7 +36,6 @@
     width: 100%;
     height: 100%;
     display: block;
-    border-radius: 20px;
 }
 
 .hover-cover{
@@ -46,7 +45,10 @@
     background-color: rgba(255, 255, 255, 0.37);
     width: 100%;
     height: 100%;
-    border-radius: 20px;
+}
+
+.main-paige-poster, .hover-cover{
+    border-radius: 10px;
 }
 
 .popular-list-image-container:hover .hover-cover{
