@@ -1,0 +1,27 @@
+
+.whats-new-block{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.whats-new-block-header{
+    color: #3a3a3a;
+    font-weight: 600;
+}
+
+.whats-new-block-object-container> img{
+    width: 100%;
+    height: 170px;
+    border-radius: 10px;
+}
+
+.whats-new-block-object-container-overview{
+    margin-top: 7px;
+    padding: 0 1px;
+    color: #3a3a3a;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+}

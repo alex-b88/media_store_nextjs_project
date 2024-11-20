@@ -18,11 +18,14 @@ body {
 
 .container{
     margin-top: 30px;
-    width: 90%;
-    /*min-height: 90%;*/
+    width: 85%;
     display: flex;
 }
 
+a{
+    text-decoration: none;
+    /*color: dodgerblue;*/
+}
 
 .left-side{
     width: 17%;
@@ -49,8 +52,29 @@ body {
 
 .content-container{
     width: 83%;
-    /*min-height: 100%;*/
     background-color: rgba(244, 244, 244, 0.96);
     border-radius: 0 40px 40px 0;
     padding: 30px 40px;
+}
+
+.main-content-container{
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.content-container-01{
+    padding: 0 20px 0 0;
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    gap: 30px;
+}
+
+.right-sidebar{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }

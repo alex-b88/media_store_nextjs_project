@@ -1,14 +1,19 @@
-import {apiService} from "@/app/(private)/services/api-services";
 import {imagePath600x900} from "@/app/(private)/services/settings";
 import "./styles/popular-list-component-styles.css"
 import Link from "next/link";
+import {IMovieShortModel} from "@/app/(private)/models/IMovieShortModel";
+import {FC} from "react";
 
 
-const PopularMoviesComponent = async () => {
+type Props = {
+    moviesSliced:IMovieShortModel[]
+}
 
-    const response = await apiService.moviesearch.getPopular()
+const PopularMoviesComponent:FC<Props> = ({moviesSliced}) => {
 
-    const moviesSliced = response.results.slice(0, 6);
+    // const response = await apiService.moviesearch.getPopular()
+    //
+    // const moviesSliced = response.results.slice(0, 7);
 
     return (
         <div className={"popular-list"}>
@@ -18,6 +23,7 @@ const PopularMoviesComponent = async () => {
                     <div key={obj.id} className={"popular-list-image-container"}>
                         <Link href={'/movies/'+obj.id}><img className={"main-paige-poster"} src={imagePath600x900 + obj.poster_path} alt={obj.title}/>
                             <div className="hover-cover"></div>
+                            {/*<div>{obj.title}</div>*/}
                         </Link>
                     </div>
                 ))

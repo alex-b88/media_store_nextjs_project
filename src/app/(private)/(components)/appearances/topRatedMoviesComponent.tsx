@@ -1,22 +1,22 @@
 import React from 'react';
 import {apiService} from "@/app/(private)/services/api-services";
 import Link from "next/link";
-import {imagePath600x900} from "@/app/(private)/services/settings";
+import "./styles/top-rated-list-styles.css"
 
 const TopRatedMoviesComponent = async () => {
 
     const response = await apiService.moviesearch.getTopRatedThisWeek()
-
-    const moviesSliced = response.results.slice(0, 6);
+    const moviesSliced = response.results.slice(0, 10);
 
     return (
-        <div className={"popular-list"}>
-            <div className={"popular-list-small-navigation"}>
+        <div className={"top-rated-block"}>
+            <div className={"top-rated-block-header"}>
                 <span>Top Rated This Week</span><span><Link href={"/movies/top-rated"}>See all</Link></span></div>
-            <div className={"popular-list-objects-container"}>{
-                moviesSliced.map((obj) => (
-                    <div key={obj.id} className={"popular-list-image-container"}>
-                        <Link href={'/movies/'+obj.id}><img className={"main-paige-poster"} src={imagePath600x900 + obj.poster_path} alt={obj.title}/></Link>
+
+            <div className={"top-rated-objects-container"}>{
+                moviesSliced.map((obj, index) => (
+                    <div key={obj.id} className={"top-rated-list-one-object-container"}>
+                        <Link href={'/movies/'+obj.id}><div>{index+1}.</div><div className={"top-rated-list-one-object-container-title-and-score"}><span>{obj.title}</span><span>{obj.vote_average}</span></div></Link>
                     </div>
                 ))
             }</div>

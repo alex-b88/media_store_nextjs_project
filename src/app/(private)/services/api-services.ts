@@ -37,31 +37,31 @@ export const apiService = {
 
     moviesearch: {
         getPopular: async ():Promise<IResponseModel & {results:IMovieShortModel[]}> => {
-             const response = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&region=ua', options)
-                 .then(res => res.json())
-                 .catch(err => console.error(err));
-             return response;
-        },
-        getTopRatedThisWeek: async ():Promise<IResponseModel & {results:IMovieShortModel[]}> => {
-            const response = await fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&region=ua', options)
+             return await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&region=ua', options)
                 .then(res => res.json())
                 .catch(err => console.error(err));
-            return response;
+        },
+        getTopRatedThisWeek: async ():Promise<IResponseModel & {results:IMovieShortModel[]}> => {
+            return await fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&region=ua', options)
+                .then(res => res.json())
+                .catch(err => console.error(err));
         },
 
         getOneMovieShort: async (id:string):Promise<IMovieShortModel> => {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US&page=1&region=ua`, options)
+            return await fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US&page=1&region=ua`, options)
                 .then(res => res.json())
                 .catch(err => console.error(err));
-            return response;
         },
         getOneMovieFull: async (id:string):Promise<IMovieFullModel> => {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
+            return await fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
                 .then(res => res.json())
                 .catch(err => console.error(err));
-            return response;
+        },
+        getUpComingMovies: async ():Promise<IResponseModel & {results:IMovieShortModel[]}> => {
+            return await fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&region=ua`, options)
+                .then(res => res.json())
+                .catch(err => console.error(err));
         }
-
 
     }
 
