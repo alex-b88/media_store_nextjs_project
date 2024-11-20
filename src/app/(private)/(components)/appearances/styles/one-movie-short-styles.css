@@ -1,5 +1,6 @@
 
 .one-movie-short-container{
+    margin-top: 10px;
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -60,4 +61,8 @@
 
 .one-movie-short-container__info-movie-description{
     margin-top: 20px;
+    color: #3a3a3a;
+    /*font-size: 12px;*/
+    /*font-weight: 500;*/
+    /*line-height: 1.5;*/
 }

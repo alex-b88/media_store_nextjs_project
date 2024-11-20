@@ -1,0 +1,41 @@
+
+.upcoming-list{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.upcoming-list-header>span:first-child{
+    color: #3a3a3a;
+    font-weight: 600;
+}
+
+.upcoming-list-header>span:last-of-type{
+    margin-left: 20px;
+    color: dodgerblue;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.upcoming-list-objects-container{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.upcoming-list-image-container:hover{
+    transform: translateY(-5px);
+}
+
+.upcoming-list-image-container{
+    position: relative;
+    width: 110px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.main-paige-poster{
+    width: 100%;
+    height: 100%;
+    display: block;
+}

@@ -25,7 +25,7 @@ const PopularMoviesComponent:FC<Props> = ({moviesSliced}) => {
                         <Link href={'/movies/'+obj.id}><img className={"main-paige-poster"} src={imagePath600x900 + obj.poster_path} alt={obj.title}/>
                             <div className="hover-cover"></div>
                         </Link>
-                        <div className={"popular-list-image-container-title"}>{truncateTextByCharacters(obj.title, 13)}</div>
+                        <div className={"popular-list-image-container-title"}>{truncateTextByCharacters(obj.title, 11)}</div>
                     </div>
                 ))
             }</div>

@@ -19,7 +19,9 @@ export default function RootLayout({
       <body>
       <div className="container">
           <LeftSideComponent/>
-          <MainContainer>{children}</MainContainer>
+          <MainContainer>
+              {children}
+          </MainContainer>
       </div>
 
       </body>

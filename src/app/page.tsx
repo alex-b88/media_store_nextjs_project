@@ -1,10 +1,11 @@
-import PopularMoviesComponent from "@/app/(private)/(components)/appearances/PopularMoviesComponent";
+
 import TopRatedMoviesComponent from "@/app/(private)/(components)/appearances/topRatedMoviesComponent";
 import OneMovieShortComponent from "@/app/(private)/(components)/appearances/oneMovieShortComponent";
 import React from 'react';
-import UpComingMoviesComponent from "@/app/(private)/(components)/appearances/UpComingMoviesComponent";
 import {apiService} from "@/app/(private)/services/api-services";
 import WhatsNewComponent from "@/app/(private)/(components)/appearances/whatsNewComponent";
+import PopularMoviesComponent from "@/app/(private)/(components)/appearances/popularMoviesComponent";
+import UpComingMoviesComponent from "@/app/(private)/(components)/appearances/upComingMoviesComponent";
 
 
 
@@ -27,6 +28,7 @@ const Home = async () => {
             </div>
             <div className={"right-sidebar"}>
                 <WhatsNewComponent movie={upComingMovieFirst}/>
+                <hr/>
                 <TopRatedMoviesComponent/>
             </div>
         </div>

@@ -16,7 +16,7 @@ const TopRatedMoviesComponent = async () => {
             <div className={"top-rated-objects-container"}>{
                 moviesSliced.map((obj, index) => (
                     <div key={obj.id} className={"top-rated-list-one-object-container"}>
-                        <Link href={'/movies/'+obj.id}><div>{index+1}.</div><div className={"top-rated-list-one-object-container-title-and-score"}><span>{obj.title}</span><span>{obj.vote_average}</span></div></Link>
+                        <Link href={'/movies/'+obj.id}><div>{index+1}.</div><div className={"top-rated-list-one-object-container-title-and-score"}><span>{obj.title}</span><span>{obj.vote_average.toFixed(2)}</span></div></Link>
                     </div>
                 ))
             }</div>

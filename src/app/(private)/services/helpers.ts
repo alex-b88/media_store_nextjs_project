@@ -9,6 +9,8 @@
 //     return <span>{convertRuntime(runtime)}</span>;
 // };
 
+import {IDate} from "@/app/(private)/models/IDate";
+
 export const RuntimeConverter = (duration:number) => {
     const h = Math.floor(duration / 60);
     const m = duration % 60;
@@ -28,4 +30,15 @@ export const truncateTextByCharacters = (text: string, characterLimit: number): 
         return text
     }
     return text.slice(0, characterLimit) + '...';
+}
+
+
+export const getReleaseDate = (date:string): IDate =>{
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const dateObj = new Date(date);
+    return {
+        year: dateObj.getFullYear(),
+        month: monthNames[dateObj.getMonth()],
+        day: dateObj.getDate()
+    };
 }

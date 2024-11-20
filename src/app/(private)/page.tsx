@@ -6,6 +6,8 @@ type Props = {
 }
 
 const MainContainer:FC<Props> = ({children}) => {
+
+
     return (
         <div className={"content-container"}>
             <hr/>
