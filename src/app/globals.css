@@ -55,6 +55,13 @@ a{
     background-color: rgba(244, 244, 244, 0.96);
     border-radius: 0 40px 40px 0;
     padding: 30px 40px;
+
+    /*--------*/
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    /*--------*/
 }
 
 .main-content-container{
