@@ -1,6 +1,6 @@
 
 export interface IResponseModel {
-    dates: {
+    dates?: {
         maximum: Date,
         minimum: Date
     },

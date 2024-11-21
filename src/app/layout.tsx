@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import LeftSideComponent from "@/app/(private)/(components)/left-side/Left-Side-Component";
-import GenresProvider from "@/app/(private)/context/genresCotext";
+
 import PopularMoviesComponent from "@/app/(private)/(components)/appearances/popularMoviesComponent";
-import UpComingMoviesComponent from "@/app/(private)/(components)/appearances/upComingMoviesComponent";
 import WhatsNewComponent from "@/app/(private)/(components)/appearances/whatsNewComponent";
 import TopRatedMoviesComponent from "@/app/(private)/(components)/appearances/topRatedMoviesComponent";
 import React from "react";
+import HeaderComponent from "@/app/(private)/(components)/header/headerComponent";
+import ContextProvider from "@/app/(private)/context/contextProvider";
 
 
 export const metadata: Metadata = {
@@ -23,7 +24,8 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
       <div className="container">
           <LeftSideComponent/>
           <div className={"content-container"}>
-              <GenresProvider>
+              <ContextProvider>
+                        <HeaderComponent/>
                   <hr/>
                   <div className="main-content-container">
                       <div className={"content-container-01"}>
@@ -36,7 +38,7 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
                           <TopRatedMoviesComponent/>
                       </div>
                   </div>
-              </GenresProvider>
+              </ContextProvider>
           </div>
       </div>
 

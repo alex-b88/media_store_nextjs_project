@@ -7,7 +7,7 @@ import {apiService} from "@/app/(private)/services/api-services";
 const GenresContext = createContext<IGenreModel[]>([]);
 export const useGenres = () => useContext(GenresContext)
 
-export default function GenresProvider({children}: { children: React.ReactNode }) {
+export default function ContextProvider({children}: { children: React.ReactNode }) {
 
     const [genres, setGenres] = useState<IGenreModel[]>([]);
 

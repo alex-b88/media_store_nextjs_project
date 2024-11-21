@@ -1,14 +1,3 @@
-
-// export const RuntimeConverter1 = ({ runtime:string }) => {
-//     const convertRuntime = (runtime) => {
-//         const hours = Math.floor(runtime / 60);
-//         const minutes = runtime % 60;
-//         return `${hours}ч ${minutes}м`;
-//     };
-//
-//     return <span>{convertRuntime(runtime)}</span>;
-// };
-
 import {IDate} from "@/app/(private)/models/IDate";
 
 export const RuntimeConverter = (duration:number) => {
@@ -42,3 +31,4 @@ export const getReleaseDate = (date:string): IDate =>{
         day: dateObj.getDate()
     };
 }
+

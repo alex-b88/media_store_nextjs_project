@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import GenresProvider from "@/app/(private)/context/genresCotext";
+import ContextProvider from "@/app/(private)/context/genresCotext";
 import {apiService} from "@/app/(private)/services/api-services";
 import PopularMoviesComponent from "@/app/(private)/(components)/appearances/popularMoviesComponent";
 import OneMovieShortComponent from "@/app/(private)/(components)/appearances/oneMovieShortComponent";

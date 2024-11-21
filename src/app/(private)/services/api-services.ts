@@ -61,6 +61,11 @@ export const apiService = {
             return await fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&region=ua`, options)
                 .then(res => res.json())
                 .catch(err => console.error(err));
+        },
+        getAllBySearchParam: async (searchParam:string):Promise<IResponseModel & {results:IMovieShortModel[]}> => {
+            return await fetch(`https://api.themoviedb.org/3/search/movie?query=${searchParam}&include_adult=false&language=en-US&page=1&region=ua`, options)
+                .then(res => res.json())
+                .catch(err => console.error(err));
         }
 
     }
