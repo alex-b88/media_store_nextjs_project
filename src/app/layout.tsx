@@ -2,6 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 import LeftSideComponent from "@/app/(private)/(components)/left-side/Left-Side-Component";
 import Home from "@/app/page";
+import GenresProvider from "@/app/(private)/context/genresCotext";
+import PopularMoviesComponent from "@/app/(private)/(components)/appearances/popularMoviesComponent";
+import OneMovieShortComponent from "@/app/(private)/(components)/appearances/oneMovieShortComponent";
+import UpComingMoviesComponent from "@/app/(private)/(components)/appearances/upComingMoviesComponent";
+import WhatsNewComponent from "@/app/(private)/(components)/appearances/whatsNewComponent";
+import TopRatedMoviesComponent from "@/app/(private)/(components)/appearances/topRatedMoviesComponent";
+import React from "react";
 
 
 export const metadata: Metadata = {
@@ -17,12 +24,26 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
       <body>
       <div className="container">
           <LeftSideComponent/>
-          <Home>
-              {children}
-          </Home>
+          <div className={"content-container"}>
+              <GenresProvider>
+                  <hr/>
+                  <div className="main-content-container">
+                      <div className={"content-container-01"}>
+                          <PopularMoviesComponent/>
+                          {children}
+                          <UpComingMoviesComponent/>
+                      </div>
+                      <div className={"right-sidebar"}>
+                          <WhatsNewComponent/>
+                          <hr/>
+                          <TopRatedMoviesComponent/>
+                      </div>
+                  </div>
+              </GenresProvider>
+          </div>
       </div>
 
       </body>
     </html>
-  );
+    );
 }

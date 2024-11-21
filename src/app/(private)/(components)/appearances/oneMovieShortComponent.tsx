@@ -1,19 +1,15 @@
 import {imagePathW400} from "@/app/(private)/services/settings";
 import "./styles/one-movie-short-styles.css"
-import {apiService} from "@/app/(private)/services/api-services";
 import {RuntimeConverter} from "@/app/(private)/services/helpers";
 import Link from "next/link";
-import {FC} from "react";
+import {apiService} from "@/app/(private)/services/api-services";
 
 
-type Props = {
-    id:number;
-}
 
 //компонент для отображения одного фильма, короткая версия
-const OneMovieShortComponent:FC<Props> = async({id}) => {
+const OneMovieShortComponent = async() => {
 
-    const obj = await apiService.moviesearch.getOneMovieFull(id.toString())
+    const obj = await apiService.moviesearch.getOneMovieFull("912649");
     const movieDuration = RuntimeConverter(obj.runtime);
 
     return (

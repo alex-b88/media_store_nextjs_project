@@ -1,15 +1,13 @@
-import React, {FC} from 'react';
+import React from 'react';
 import "./styles/whats-new-styles.css"
-import {IMovieShortModel} from "@/app/(private)/models/IMovieShortModel";
 import {imagePathW400} from "@/app/(private)/services/settings";
 import {getReleaseDate, truncateTextByWords} from "@/app/(private)/services/helpers";
 import Link from "next/link";
+import {apiService} from "@/app/(private)/services/api-services";
 
-type Props = {
-    movie: IMovieShortModel;
-}
+const WhatsNewComponent= async() => {
 
-const WhatsNewComponent:FC<Props> = ({movie}) => {
+    const movie = await apiService.moviesearch.getOneMovieShort("402431");
 
     const shortDecription = truncateTextByWords(movie.overview, 20)
     const date = getReleaseDate(movie.release_date);

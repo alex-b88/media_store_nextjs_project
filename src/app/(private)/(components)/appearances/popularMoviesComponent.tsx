@@ -1,20 +1,16 @@
 import {imagePath600x900} from "@/app/(private)/services/settings";
 import "./styles/popular-list-component-styles.css"
 import Link from "next/link";
-import {IMovieShortModel} from "@/app/(private)/models/IMovieShortModel";
-import {FC} from "react";
 import {truncateTextByCharacters} from "@/app/(private)/services/helpers";
+import {apiService} from "@/app/(private)/services/api-services";
 
 
-type Props = {
-    moviesSliced:IMovieShortModel[]
-}
+const PopularMoviesComponent = async() => {
 
-const PopularMoviesComponent:FC<Props> = ({moviesSliced}) => {
+    const response = await apiService.moviesearch.getPopular()
 
-    // const response = await apiService.moviesearch.getPopular()
-    //
-    // const moviesSliced = response.results.slice(0, 7);
+    const moviesSliced = response.results.slice(1, 8);
+
 
     return (
         <div className={"popular-list"}>

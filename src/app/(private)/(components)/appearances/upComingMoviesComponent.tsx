@@ -1,18 +1,14 @@
-import React, {FC} from 'react';
+import React from 'react';
 import Link from "next/link";
 import {imagePath600x900} from "@/app/(private)/services/settings";
-import {IMovieShortModel} from "@/app/(private)/models/IMovieShortModel";
 import "./styles/upcoming-movie-styles.css"
+import {apiService} from "@/app/(private)/services/api-services";
 
 
-type Props = {
-    moviesSliced:IMovieShortModel[]
-}
+const UpComingMoviesComponent = async () => {
 
-const UpComingMoviesComponent:FC<Props> = ({moviesSliced}) => {
-
-    // const response = await apiService.moviesearch.getUpComingMovies()
-    // const moviesSliced = response.results.slice(1, 8);
+    const response = await apiService.moviesearch.getUpComingMovies()
+    const moviesSliced = response.results.slice(1, 8);
 
     return (
         <div className={"upcoming-list"}>
