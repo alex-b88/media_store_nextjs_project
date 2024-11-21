@@ -1,0 +1,98 @@
+
+.oneMovieFullInfoComponent-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    color: #3a3a3a;
+}
+
+.oneMovieFullInfoComponent-container-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.oneMovieFullInfoComponent-container-header>p{
+    font-size: 18px;
+    font-weight: 600;
+    color: #3a3a3a;
+}
+
+.oneMovieFullInfoComponent-container-header>p>span:first-child{
+    color: dodgerblue;
+}
+
+.oneMovieFullInfoComponent-container>img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.duration-and-categories{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.oneMovieFullInfoComponent-container-genres-list{
+    display: flex;
+    gap: 5px;
+}
+
+.duration-and-categories>p:first-child, .oneMovieFullInfoComponent-container-genres-list>span{
+    color: white;
+    font-size: 14px;
+    background-color: cornflowerblue;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.oneMovieFullInfoComponent-container-genres-list>span>a{
+    color: white;
+}
+
+.oneMovieFullInfoComponent-container-production-companies, .oneMovieFullInfoComponent-container-production-budget{
+    width: 100%;
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.oneMovieFullInfoComponent-container-production-budget{
+    justify-content: flex-end;
+}
+
+.oneMovieFullInfoComponent-container-production-companies>p, .oneMovieFullInfoComponent-container-production-budget>p{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.oneMovieFullInfoComponent-container-production-companies>div{
+    color: white;
+    font-size: 12px;
+    background-color: rgba(35, 139, 177, 0.98);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.oneMovieFullInfoComponent-container-production-budget>span{
+    color: white;
+    font-size: 12px;
+    background-color: lightseagreen;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.oneMovieFullInfoComponent-container-tagLine{
+    margin-top: -20px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+}

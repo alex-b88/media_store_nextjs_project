@@ -4,14 +4,12 @@ import {apiService} from "@/app/(private)/services/api-services";
 import {IMovieShortModel} from "@/app/(private)/models/IMovieShortModel";
 import "./form-search-component-styles.css"
 import Link from "next/link";
-import { useRouter } from 'next/navigation'
 
 const FormSearchComponent = () => {
 
     const [inputValue, setInputValue] = useState<string>('')
     const [searchResults, setSearchResults] = useState<IMovieShortModel[]>([])
-    const router = useRouter()
-    console.log(router);
+
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(event.target.value)
     }
@@ -31,11 +29,11 @@ const FormSearchComponent = () => {
 
         if(inputValue){fetchData()}
     }, [inputValue])
-
-    useEffect(() => {
-        setInputValue('');
-        setSearchResults([]);
-    }, []);
+    //
+    // useEffect(() => {
+    //     setInputValue('');
+    //     setSearchResults([]);
+    // }, []);
 
     return (
         <div className={"form-search-component"}>
