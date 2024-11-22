@@ -19,7 +19,7 @@ const OneMovieFullInfoComponent:FC<Props> = ({obj}) => {
         <div className={"oneMovieFullInfoComponent-container"}>
             <div className={"oneMovieFullInfoComponent-container-header"}>
                 <h2>{obj.title}</h2>
-                <p><span>{obj.vote_average.toFixed(1)} </span>/10</p>
+                <p><span>{obj.vote_average ? obj.vote_average.toFixed(1):0} </span>/10</p>
             </div>
             <p className={"oneMovieFullInfoComponent-container-tagLine"}>{obj.tagline}</p>
             <div className={"duration-and-categories"}>

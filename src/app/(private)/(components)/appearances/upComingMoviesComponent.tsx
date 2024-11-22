@@ -13,7 +13,7 @@ const UpComingMoviesComponent = async () => {
     return (
         <div className={"upcoming-list"}>
             <div className={"upcoming-list-header"}>
-                <span>Upcoming</span><span><Link href={"/movies/top-rated"}>See all</Link></span></div>
+                <span>Upcoming</span><span><Link href={"/movies/upcoming"}>See all</Link></span></div>
             <div className={"upcoming-list-objects-container"}>{
                 moviesSliced.map((obj) => (
                     <div key={obj.id} className={"upcoming-list-image-container"}>

@@ -21,17 +21,6 @@ const FormSearchComponent = () => {
         setInputValue(event.target.value)
     }
 
-    const handleFocus = () => {
-        setIsFormFocused(true)
-    };
-
-    const handleBlur = (event: React.FocusEvent<HTMLFormElement>) => {
-        if (event.currentTarget.contains(event.relatedTarget as Node)) {
-            return
-        }
-        setIsFormFocused(false)
-    };
-
     useEffect(() => {
         const fetchData = async () => {
             try{
@@ -43,11 +32,20 @@ const FormSearchComponent = () => {
                 console.log(error)
             }
         }
-
         if(inputValue){
             fetchData()
         }
     }, [inputValue])
+
+    const handleFocus = () => {
+        setIsFormFocused(true)
+    }
+    const handleBlur = (event: React.FocusEvent<HTMLFormElement>) => {
+        if (event.currentTarget.contains(event.relatedTarget as Node)) {
+            return
+        }
+        setIsFormFocused(false)
+    }
 
     useEffect(() => {
         setInputValue('')
@@ -57,21 +55,23 @@ const FormSearchComponent = () => {
     }, [currentPath,isFormFocused])
 
 
+
     return (
         <div className={"form-search-component"}>
-            <form className={"form-search-component-form"} onFocus={handleFocus} onBlur={handleBlur}>
-                    <div className={"search-icon"}></div>
-                    <input type="text" value={inputValue} onChange={handleInputChange} placeholder={"Search your" +
-                        " interesting..."} className={"form-search-component-search-input"}/>
+            <form className={"form-search-component-form"} onClick={handleFocus} onBlur={handleBlur}>
+                <div className={"search-icon"}></div>
+                <input type="text" value={inputValue} onChange={handleInputChange} placeholder={"Search your" +
+                    " interesting..."} className={"form-search-component-search-input"}/>
+                <div className={inputValue.length > 0 && searchResults.length > 0 ? styles.visible : styles.hidden}>
+                    {
+                        searchResults && searchResults.length > 0 ? searchResults.map((obj) =>
+                            <div key={obj.id} className={"form-search-component-results-one-object"}>
+                                <Link href={"/movies/" + obj.id}>{obj.title}</Link>
+                            </div>) : null
+                    }
+                </div>
             </form>
-            <div className={isVisible && searchResults.length > 0 ? styles.visible : styles.hidden}>
-                {
-                    searchResults && searchResults.length > 0 ? searchResults.map((obj) =>
-                        <div key={obj.id} className={"form-search-component-results-one-object"} onFocus={handleFocus}>
-                        <Link href={"/movies/"+obj.id}>{obj.title}</Link>
-                    </div>) : null
-                }
-            </div>
+
         </div>
 
     );

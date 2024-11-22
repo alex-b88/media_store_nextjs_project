@@ -22,15 +22,14 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
     <html lang="en">
       <body>
       <div className="container">
-          <LeftSideComponent/>
+          {/*<LeftSideComponent/>*/}
           <div className={"content-container"}>
               <ContextProvider>
                         <HeaderComponent/>
                   <hr/>
                   <div className="main-content-container">
                       <div className={"content-container-01"}>
-
-                          {children}
+                                {children}
                       </div>
                       <div className={"right-sidebar"}>
                           <WhatsNewComponent/>
