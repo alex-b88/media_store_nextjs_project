@@ -13,7 +13,7 @@ const FormSearchComponent = () => {
     const [searchResults, setSearchResults] = useState<IMovieShortModel[]>([])
     const [isVisible, setIsVisible] = useState<boolean>(false)
     const [path, setPath] = useState<string>('')
-    const [isFormFocused, setisFormFocused] = useState<boolean>(false)
+    const [isFormFocused, setIsFormFocused] = useState<boolean>(false)
 
     const currentPath:string = usePathname()
 
@@ -22,15 +22,14 @@ const FormSearchComponent = () => {
     }
 
     const handleFocus = () => {
-        setisFormFocused(true);
+        setIsFormFocused(true)
     };
 
     const handleBlur = (event: React.FocusEvent<HTMLFormElement>) => {
-        // Если элемент, на который уходит фокус, находится внутри формы, фокусируемся снова
         if (event.currentTarget.contains(event.relatedTarget as Node)) {
-            return;
+            return
         }
-        setisFormFocused(false);
+        setIsFormFocused(false)
     };
 
     useEffect(() => {
@@ -55,7 +54,7 @@ const FormSearchComponent = () => {
         setSearchResults([])
         setPath(currentPath)
         setIsVisible(false)
-    }, [currentPath,isFormFocused]);
+    }, [currentPath,isFormFocused])
 
 
     return (
@@ -65,10 +64,10 @@ const FormSearchComponent = () => {
                     <input type="text" value={inputValue} onChange={handleInputChange} placeholder={"Search your" +
                         " interesting..."} className={"form-search-component-search-input"}/>
             </form>
-            <div className={isVisible ? styles.visible : styles.hidden}>
+            <div className={isVisible && searchResults.length > 0 ? styles.visible : styles.hidden}>
                 {
-                    searchResults && inputValue.length > 0 && searchResults.length > 0 ? searchResults.map((obj) =>
-                        <div key={obj.id} className={"form-search-component-results-one-object"}>
+                    searchResults && searchResults.length > 0 ? searchResults.map((obj) =>
+                        <div key={obj.id} className={"form-search-component-results-one-object"} onFocus={handleFocus}>
                         <Link href={"/movies/"+obj.id}>{obj.title}</Link>
                     </div>) : null
                 }
