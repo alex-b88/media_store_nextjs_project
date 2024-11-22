@@ -44,6 +44,10 @@
     gap: 15px;
 }
 
+.top-rated-list-one-object-container>a:hover{
+    color: dodgerblue;
+}
+
 .top-rated-list-one-object-container-title-and-score{
     width: 100%;
     display: flex;

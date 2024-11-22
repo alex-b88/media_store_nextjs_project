@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import {apiService} from "@/app/(private)/services/api-services";
 import {IMovieShortModel} from "@/app/(private)/models/IMovieShortModel";
-import "./form-search-component-styles.css"
+// import "./form-search-component-styles.css"
 import Link from "next/link";
 import styles from "./formSearchComponent.module.css"
 import {usePathname} from "next/navigation";
@@ -57,17 +57,17 @@ const FormSearchComponent = () => {
 
 
     return (
-        <div className={"form-search-component"}>
-            <form className={"form-search-component-form"} onClick={handleFocus} onBlur={handleBlur}>
-                <div className={"search-icon"}></div>
+        <div className={styles.component}>
+            <form className={styles.form} onClick={handleFocus} onBlur={handleBlur}>
+                <div className={styles.searchIcon}></div>
                 <input type="text" value={inputValue} onChange={handleInputChange} placeholder={"Search your" +
-                    " interesting..."} className={"form-search-component-search-input"}/>
-                <div className={inputValue.length > 0 && searchResults.length > 0 ? styles.visible : styles.hidden}>
+                    " interesting..."} className={styles.input}/>
+                <div className={inputValue.length > 0 ? styles.visible : styles.hidden}>
                     {
                         searchResults && searchResults.length > 0 ? searchResults.map((obj) =>
-                            <div key={obj.id} className={"form-search-component-results-one-object"}>
-                                <Link href={"/movies/" + obj.id}>{obj.title}</Link>
-                            </div>) : null
+                            <div key={obj.id} className={styles.resultsItem}>
+                                <Link href={"/movies/" + obj.id} className={styles.a}>{obj.title}</Link>
+                            </div>) : <div className={styles.noResults}> nothing found...</div>
                     }
                 </div>
             </form>

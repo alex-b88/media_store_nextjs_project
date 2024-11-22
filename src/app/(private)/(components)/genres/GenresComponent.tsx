@@ -1,25 +1,38 @@
-import React from 'react';
+'use client'
+import React, {useEffect, useState} from 'react';
 import {IGenreModel} from "@/app/(private)/models/IGenreModel";
 import "./genres-list-styles.css"
 import {apiService} from "@/app/(private)/services/api-services";
+import styles from "./genresComponent.module.css"
+import Link from "next/link";
 
 
 
-const GenresComponent = async () => {
+const GenresComponent = () => {
 
+    const [genresList, setGenresList] = useState<IGenreModel[]>([])
+    const [isVisible, setIsVisible] = useState<boolean>(false)
+
+    const handlerOnClick = () =>{
+        const flag = !isVisible
+        setIsVisible(flag)
+    }
+
+    useEffect(() => {
+        const res = async() => {
+            return await apiService.genres.getMovieAll().then(res => setGenresList(res))
+        }
+        res()
+    },[])
+    console.log(genresList);
     return (
-        <div className={"genres-list"}>
-            <span>genres</span>
-            <ul>
+        <div className={isVisible ? styles.genresContainerHover : styles.genresContainer} onMouseLeave={handlerOnClick} onMouseEnter={handlerOnClick}>
+            <span className={styles.allGenres}>All genres</span><div className={styles.arrowDown}></div>
+            <div className={isVisible ? styles.visible : styles.hidden}>
                 {
-                    apiService.genres.getMovieAll().then(res =>
-                        res.map((obj: IGenreModel) => (
-
-                            <li key={obj.id}><span>{obj.name}</span></li>
-
-                        )))
+                    genresList.map((obj) => <div key={obj.id}><Link href={"/movies/genres/"+obj.id} className={styles.a}>{obj.name}</Link></div>)
                 }
-            </ul>
+            </div>
         </div>
     );
 };
