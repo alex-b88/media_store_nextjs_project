@@ -45,6 +45,7 @@ const FormSearchComponent = () => {
             return
         }
         setIsFormFocused(false)
+        console.log(path)
     }
 
     useEffect(() => {
