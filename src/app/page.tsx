@@ -1,8 +1,8 @@
 
-import OneMovieShortComponent from "@/app/(private)/(components)/appearances/oneMovieShortComponent";
+import OneMovieShortComponent from "@/app/(components)/appearances/oneMovieShortComponent";
 import React from 'react';
-import UpComingMoviesComponent from "@/app/(private)/(components)/appearances/upComingMoviesComponent";
-import PopularMoviesComponent from "@/app/(private)/(components)/appearances/popularMoviesComponent";
+import UpComingMoviesComponent from "@/app/(components)/appearances/upComingMoviesComponent";
+import PopularMoviesComponent from "@/app/(components)/appearances/popularMoviesComponent";
 
 
 

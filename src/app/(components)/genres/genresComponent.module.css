@@ -1,0 +1,81 @@
+
+.genresContainer{
+    position: relative;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #3a3a3a;
+    padding: 10px 10px 0 10px;
+    z-index: 3;
+}
+
+.genresContainerHover{
+    position: relative;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #3a3a3a;
+    padding: 10px 10px 0 10px;
+    z-index: 3;
+    background-color: rgba(244, 244, 244, 0.96);
+    border-radius: 20px 20px 0 0;
+    cursor: pointer;
+}
+
+.genresContainer:hover{
+    cursor: pointer;
+}
+
+.arrowDown:hover{
+    background-image: url("../../images/keyboard_arrow_down-hover.svg");
+    cursor: pointer;
+}
+
+.allGenres{
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 3;
+}
+
+.arrowDown{
+    width: 24px;
+    height: 24px;
+    background-image: url("../../images/keyboard_arrow_down.svg");
+    background-size: cover;
+    border: none;
+    z-index: 3;
+}
+
+.hidden{
+    display: none;
+}
+
+.visible{
+    width: 120px;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5px;
+    padding: 10px 10px 15px 12px;
+    /*background-color: white;*/
+    background-color: rgba(244, 244, 244, 0.96);
+    border-radius: 0 0 20px 20px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.a{
+    color: #3a3a3a;
+    font-size: 14px;
+}
+
+.a:hover{
+    color: dodgerblue;
+}
