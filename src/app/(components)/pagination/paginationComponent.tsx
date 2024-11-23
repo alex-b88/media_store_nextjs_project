@@ -11,6 +11,7 @@ const PaginationComponent = () => {
     const router = useRouter();
     const pathname = usePathname()
     const searchParams = useSearchParams()
+    const pageNum = searchParams.get('page') || '1'
 
     const createQueryString = useCallback(
         (name: string, value: string) => {
@@ -29,7 +30,7 @@ const PaginationComponent = () => {
 
     return (
         <Stack spacing={2}>
-            <Pagination count={500}  variant="outlined" shape="rounded" onChange={onClickHandler}/>
+            <Pagination count={500} page={+pageNum} variant="outlined" shape="rounded" onChange={onClickHandler}/>
         </Stack>
     );
 }

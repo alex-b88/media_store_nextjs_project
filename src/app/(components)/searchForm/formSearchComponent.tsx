@@ -67,7 +67,7 @@ const FormSearchComponent = () => {
                     {
                         searchResults && searchResults.length > 0 ? searchResults.map((obj) =>
                             <div key={obj.id} className={styles.resultsItem}>
-                                <Link href={"/src/app/movies/" + obj.id} className={styles.a}>{obj.title}</Link>
+                                <Link href={"/movies/" + obj.id} className={styles.a}>{obj.title}</Link>
                             </div>) : <div className={styles.noResults}> nothing found...</div>
                     }
                 </div>

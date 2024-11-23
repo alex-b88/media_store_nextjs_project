@@ -13,7 +13,6 @@ const TopRatedLayOut = ({ children }: Props) => {
     return (
         <>
             {children}
-            
         </>
     );
 };

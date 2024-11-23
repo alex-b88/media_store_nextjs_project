@@ -7,7 +7,7 @@ import {apiService} from "@/app/services/api-services";
 
 const UpComingMoviesComponent = async () => {
 
-    const response = await apiService.moviesearch.getUpComingMovies()
+    const response = await apiService.moviesearch.getUpComingMovies("1")
     const moviesSliced = response.results.slice(1, 8);
 
     return (

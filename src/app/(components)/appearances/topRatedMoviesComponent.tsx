@@ -5,7 +5,7 @@ import "./styles/top-rated-list-styles.css"
 
 const TopRatedMoviesComponent = async () => {
 
-    const response = await apiService.moviesearch.getTopRatedThisWeek()
+    const response = await apiService.moviesearch.getTopRatedThisWeek("1")
     const moviesSliced = response.results.slice(0, 10);
 
     return (

@@ -7,7 +7,7 @@ import {getSlicedGenres, truncateTextByWords} from "@/app/services/helpers";
 import Link from "next/link";
 import {useGenres} from "@/app/context/contextProvider";
 import {apiService} from "@/app/services/api-services";
-import {useSearchParams} from "next/navigation";
+import {usePathname, useSearchParams} from "next/navigation";
 
 
 //компонент для отображения фильмов списком
@@ -16,25 +16,51 @@ const MoviesListComponent = () => {
     const genres = useGenres();
     const [list, setList] = useState<IMovieShortModel[]>([])
     const [path, setPath] = useState<string>()
+    const pathname = usePathname()
+    const cat = pathname.split('/').pop()
 
     const searchParams = useSearchParams()
     const pageNum = searchParams.get('page') || '1';
 
 
     useEffect(() => {
-        setPath(pageNum)
-        apiService.moviesearch.getPopular(pageNum).then((response) => {
-            setList(response.results)
-        })
-    }, [pageNum]);
+            setPath(pageNum)
 
+            if (pathname.includes('genre') && cat !== undefined) {
+                apiService.moviesearch.getByGenre(cat, pageNum).then((response) => {
+                    setList(response.results)
+                })
+            }
+            else{
+                switch (cat){
+                    case 'popular':{
+                        apiService.moviesearch.getPopular(pageNum).then((response) => {
+                            setList(response.results)
+                        })
+                        break;
+                    }
+                    case 'upcoming':{
+                        apiService.moviesearch.getUpComingMovies(pageNum).then((response) => {
+                            setList(response.results)
+                        })
+                        break;
+                    }
+                    case 'top-rated':{
+                        apiService.moviesearch.getTopRatedThisWeek(pageNum).then((response) => {
+                            setList(response.results)
+                        })
+                        break;
+                    }
+                }
+            }
+    }, [pageNum]);
 
 
     return (
         <div className={styles.oneObjContainer}>
             {
                 list.map((movie) => (
-                    <Link href={"/src/app/movies/" + movie.id} key={movie.id} className={styles.oneObj}>
+                    <Link href={"/movies/" + movie.id} key={movie.id} className={styles.oneObj}>
                         <img src={baseImageUrl + movie.poster_path} alt={movie.title}/>
                         <div className={styles.info}>
                             <div className={styles.blockHeader}><h3>{movie.title}</h3><p><span>Popularity:</span> <span className={styles.popularity}>{movie.popularity.toFixed(0)}</span></p></div>

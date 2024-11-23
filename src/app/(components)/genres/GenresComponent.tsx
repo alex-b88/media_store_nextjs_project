@@ -30,7 +30,7 @@ const GenresComponent = () => {
             <span className={styles.allGenres}>All genres</span><div className={styles.arrowDown}></div>
             <div className={isVisible ? styles.visible : styles.hidden}>
                 {
-                    genresList.map((obj) => <div key={obj.id}><Link href={"/src/app/movies/genres/"+obj.id} className={styles.a}>{obj.name}</Link></div>)
+                    genresList.map((obj) => <div key={obj.id}><Link href={"/movies/genre/"+obj.id} className={styles.a}>{obj.name}</Link></div>)
                 }
             </div>
         </div>

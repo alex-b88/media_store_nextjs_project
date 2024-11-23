@@ -41,8 +41,8 @@ export const apiService = {
                 .then(res => res.json())
                 .catch(err => console.error(err));
         },
-        getTopRatedThisWeek: async ():Promise<IResponseModel & {results:IMovieShortModel[]}> => {
-            return await fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&region=ua', options)
+        getTopRatedThisWeek: async (page:string):Promise<IResponseModel & {results:IMovieShortModel[]}> => {
+            return await fetch(`https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=${page}&region=ua`, options)
                 .then(res => res.json())
                 .catch(err => console.error(err));
         },
@@ -57,8 +57,8 @@ export const apiService = {
                 .then(res => res.json())
                 .catch(err => console.error(err));
         },
-        getUpComingMovies: async ():Promise<IResponseModel & {results:IMovieShortModel[]}> => {
-            return await fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&region=ua`, options)
+        getUpComingMovies: async (page:string):Promise<IResponseModel & {results:IMovieShortModel[]}> => {
+            return await fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=${page}&region=ua`, options)
                 .then(res => res.json())
                 .catch(err => console.error(err));
         },
@@ -66,8 +66,11 @@ export const apiService = {
             return await fetch(`https://api.themoviedb.org/3/search/movie?query=${searchParam}&include_adult=false&language=en-US&page=1&region=ua`, options)
                 .then(res => res.json())
                 .catch(err => console.error(err));
+        },
+        getByGenre: async(genre:string, page:string):Promise<IResponseModel & {results:IMovieShortModel[]}> => {
+            return await fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${genre}&language=en-US&region=ua&page=${page}`, options)
+                .then(res => res.json())
         }
-
     }
 
 }
