@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {IMovieFullModel} from "@/app/(private)/models/IMovieFullModel";
 import {baseImageUrl} from "@/app/(private)/services/settings";
-import "./styles/one-movie-full-styles.css"
+import "./styles/moviesListCard-styles.css"
 import {RuntimeConverter} from "@/app/(private)/services/helpers";
 import Link from "next/link";
 
@@ -10,7 +10,7 @@ type Props = {
 }
 
 
-const OneMovieFullInfoComponent:FC<Props> = ({obj}) => {
+const MoviesListCardComponent:FC<Props> = ({obj}) => {
 
     const movieDuration = RuntimeConverter(obj.runtime);
 
@@ -56,4 +56,4 @@ const OneMovieFullInfoComponent:FC<Props> = ({obj}) => {
     );
 };
 
-export default OneMovieFullInfoComponent;
+export default MoviesListCardComponent;

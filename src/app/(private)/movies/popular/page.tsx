@@ -5,6 +5,7 @@ import PaginationComponent from "@/app/(private)/(components)/pagination/paginat
 import {useSearchParams} from "next/navigation";
 import {IMovieShortModel} from "@/app/(private)/models/IMovieShortModel";
 import {IResponseModel} from "@/app/(private)/models/IResponseModel";
+import MoviesListComponent from "@/app/(private)/(components)/appearances/moviesListComponent";
 
 
 const PopularMoviesPage = () => {
@@ -19,18 +20,14 @@ const PopularMoviesPage = () => {
 
             // setPaginationData(pagination)
             setMovieList(response.results)
-            query.push('page', '1')
+            // query.push('page', '1')
             console.log(query);
         })
     }, []);
 
     return (
         <div>
-            {
-                movieList.map((obj) => (
-                    <div className={""} key={obj.id}>{obj.title}</div>
-                ))
-            }
+            <MoviesListComponent list={movieList}/>
             {
                 paginationData && <PaginationComponent obj={paginationData}/>
             }

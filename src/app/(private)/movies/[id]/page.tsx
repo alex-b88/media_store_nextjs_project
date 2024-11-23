@@ -1,5 +1,5 @@
 import {apiService} from "@/app/(private)/services/api-services";
-import OneMovieFullInfoComponent from "@/app/(private)/(components)/appearances/oneMovieFullInfoComponent";
+import MoviesListCardComponent from "@/app/(private)/(components)/appearances/moviesListCardComponent";
 import Layout from "@/app/(private)/movies/[id]/layout";
 
 
@@ -16,7 +16,7 @@ const OneMoviePage = async ({params}:{params:Props}) => {
 
     return (
         <Layout title={obj.title} description={obj.overview}>
-          <OneMovieFullInfoComponent obj={obj}/>
+          <MoviesListCardComponent obj={obj}/>
         </Layout>
     );
 };

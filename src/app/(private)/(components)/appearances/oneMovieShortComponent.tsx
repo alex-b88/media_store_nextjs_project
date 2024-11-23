@@ -21,7 +21,7 @@ const OneMovieShortComponent = async() => {
                 <div className={"one-movie-short-container__info"}>
                     <div>
                         <h3>{obj.title}</h3>
-                        <p className={"one-movie-short-container__info-title-and-score"}><span>{obj.vote_average.toFixed(1)}</span><span>/10</span></p>
+                        <p className={"one-movie-short-container__info-title-and-score"}><span>{obj.vote_average?.toFixed(1)}</span><span>/10</span></p>
                     </div>
                     <div className={"cats-duration"}>
                         <span>{movieDuration.hours}hr {movieDuration.minutes}min</span>

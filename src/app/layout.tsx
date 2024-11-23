@@ -7,6 +7,7 @@ import React from "react";
 import HeaderComponent from "@/app/(private)/(components)/header/headerComponent";
 
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import ContextProvider from "@/app/(private)/context/contextProvider";
 
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
         <AppRouterCacheProvider>
         {/*<LeftSideComponent/>*/}
         <div className={"content-container"}>
-
+            <ContextProvider>
             <HeaderComponent/>
                   <hr/>
                   <div className="main-content-container">
@@ -37,6 +38,7 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
                           <TopRatedMoviesComponent/>
                       </div>
                   </div>
+            </ContextProvider>
           </div>
         </AppRouterCacheProvider>
       </div>
