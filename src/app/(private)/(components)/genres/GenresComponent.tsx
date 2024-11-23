@@ -24,7 +24,7 @@ const GenresComponent = () => {
         }
         res()
     },[])
-    console.log(genresList);
+
     return (
         <div className={isVisible ? styles.genresContainerHover : styles.genresContainer} onMouseLeave={handlerOnClick} onMouseEnter={handlerOnClick}>
             <span className={styles.allGenres}>All genres</span><div className={styles.arrowDown}></div>

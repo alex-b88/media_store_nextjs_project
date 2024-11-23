@@ -14,7 +14,7 @@ const PopularMoviesComponent = async() => {
 
     return (
         <div className={"popular-list"}>
-            <div className={"popular-list-small-navigation"}><span>Popular movies</span><span><Link href={"/movies/popular-movies"}>See all</Link></span></div>
+            <div className={"popular-list-small-navigation"}><span>Popular movies</span><span><Link href={"/movies/popular"}>See all</Link></span></div>
             <div className={"popular-list-objects-container"}>{
                 moviesSliced.map((obj) => (
                     <div key={obj.id} className={"popular-list-image-container"}>

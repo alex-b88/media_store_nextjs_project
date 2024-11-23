@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import LeftSideComponent from "@/app/(private)/(components)/left-side/Left-Side-Component";
 
 import WhatsNewComponent from "@/app/(private)/(components)/appearances/whatsNewComponent";
 import TopRatedMoviesComponent from "@/app/(private)/(components)/appearances/topRatedMoviesComponent";
 import React from "react";
 import HeaderComponent from "@/app/(private)/(components)/header/headerComponent";
-import ContextProvider from "@/app/(private)/context/contextProvider";
+
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 
 
 export const metadata: Metadata = {
@@ -21,6 +21,7 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
     <html lang="en">
     <body>
     <div className="container">
+        <AppRouterCacheProvider>
         {/*<LeftSideComponent/>*/}
         <div className={"content-container"}>
 
@@ -36,8 +37,8 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
                           <TopRatedMoviesComponent/>
                       </div>
                   </div>
-
           </div>
+        </AppRouterCacheProvider>
       </div>
 
       </body>
