@@ -14,8 +14,7 @@ const MoviePictures:FC<Props> = ({movieId}) => {
 
     useEffect(() => {
         const fetchCreditsByFilmId = async (movieId: number): Promise<IImagesOfMovieModel> => {
-            const response = await apiService.credits.getMoviePictures(movieId.toString())
-            return response;
+            return  await apiService.credits.getMoviePictures(movieId.toString())
         }
         fetchCreditsByFilmId(movieId)
             .then(res => setPicsList(res))

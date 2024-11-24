@@ -4,14 +4,21 @@ import Stack from '@mui/material/Stack';
 import {FC} from "react";
 
 type Props = {
-    rating:string
+    rating:string | number;
 }
 
 const RatingComponent:FC<Props> = ({rating}) => {
-    const ratingValue = ((+rating)/2).toFixed(1).toString()
+
+    if(typeof rating !== "string"){
+        rating = ((+rating)/2).toFixed(1).toString()
+    }
+    else {
+        rating = ((+rating)/2).toFixed(1)
+    }
+
     return (
         <Stack spacing={1}>
-            <Rating name="half-rating-read" defaultValue={ratingValue} precision={0.5} readOnly={true}/>
+            <Rating name="half-rating-read" defaultValue={rating} precision={0.5} readOnly={true}/>
         </Stack>
     );
 };

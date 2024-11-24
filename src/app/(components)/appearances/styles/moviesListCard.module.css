@@ -57,7 +57,7 @@
     color: white;
 }
 
-.productionCompanies{
+.companies{
     width: 100%;
     display: flex;
     gap: 7px;
@@ -65,13 +65,13 @@
     align-items: center;
 }
 
-.budget{
+.dateAndBudget{
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.releaseDate, .budget{
+.releaseDate, .productionBudget{
     display: flex;
     align-items: center;
     gap: 5px;
@@ -86,12 +86,12 @@
     border-radius: 5px;
 }
 
-.productionCompanies>p, .budget>p, .releaseDate>p{
+.companies>p, .productionBudget>p, .releaseDate>p{
     font-size: 14px;
     font-weight: 600;
 }
 
-.productionCompanies>div{
+.companies>div{
     color: white;
     font-size: 12px;
     background-color: rgba(35, 139, 177, 0.98);
@@ -99,7 +99,7 @@
     border-radius: 5px;
 }
 
-.budget>span{
+.productionBudget>span{
     color: white;
     font-size: 12px;
     background-color: lightseagreen;
@@ -112,4 +112,8 @@
     font-size: 14px;
     font-weight: 500;
     line-height: 1.5;
+}
+
+.description{
+
 }

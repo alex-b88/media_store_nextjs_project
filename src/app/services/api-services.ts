@@ -7,6 +7,7 @@ import {IMovieFullModel} from "@/app/models/IMovieFullModel";
 import {ICharacterModel} from "@/app/models/ICharacterModel";
 import {IImagesOfMovieModel} from "@/app/models/IImagesOfMovieModel";
 import {IMovieProviderModel} from "@/app/models/IMovieProviderModel";
+import {IReviewsModel} from "@/app/models/IReviewsModel";
 
 export const apiService = {
 
@@ -92,6 +93,11 @@ export const apiService = {
     },
     getProvider: async ():Promise<{results:IMovieProviderModel[]}> => {
         return await fetch(`https://api.themoviedb.org/3/watch/providers/movie?language=en-US&watch_region=US`, options)
+            .then(res => res.json())
+            .catch(err => console.error(err))
+    },
+    getReviews: async (id:number):Promise<IReviewsModel> => {
+        return await fetch(`https://api.themoviedb.org/3/movie/${id}/reviews?language=en-US&page=1`, options)
             .then(res => res.json())
             .catch(err => console.error(err))
     }

@@ -2,17 +2,18 @@
 import React, {FC, ReactNode} from 'react';
 import {IMovieFullModel} from "@/app/models/IMovieFullModel";
 import {baseImageUrl} from "@/app/services/settings";
-import "./styles/moviesListCard-styles.css"
 import {getReleaseDate, RuntimeConverter} from "@/app/services/helpers";
 import Link from "next/link";
 import RatingComponent from "@/app/(components)/rating/ratingComponent";
 import MoviesActors from "@/app/(components)/movieActors/moviesActors";
+import styles from "./styles/moviesListCard.module.css"
 
 
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import MoviePictures from "@/app/(components)/moviePictures/moviePictures";
+import ReviewsComponent from "@/app/(components)/reviews/reviewsComponent";
 
 type Props = {
     obj: IMovieFullModel;
@@ -61,38 +62,39 @@ const MoviesListCardComponent:FC<Props> = ({obj}, props: TabPanelProps) => {
     // tabs import
 
     return (
-        <div className={"oneMovieFullInfoComponent-container"}>
-            <div className={"oneMovieFullInfoComponent-container-header"}>
+        <div className={styles.container}>
+            <div className={styles.header}>
                 <h2>{obj.title}</h2>
                 {/*<p><span>{obj.vote_average ? obj.vote_average.toFixed(1):0} </span>/10</p>*/}
-                <div><span>{obj.vote_average ? <RatingComponent rating={obj.vote_average.toFixed(1).toString()}/> : <RatingComponent rating={'0'}/>} </span></div>
+                <div><span>{obj.vote_average ? <RatingComponent rating={obj.vote_average.toFixed(1).toString()}/> :
+                    <RatingComponent rating={'0'}/>} </span></div>
             </div>
-            <p className={"oneMovieFullInfoComponent-container-tagLine"}>{obj.tagline}</p>
-            <div className={"duration-and-categories"}>
+            <p className={styles.tagLine}>{obj.tagline}</p>
+            <div className={styles.durationAndCategories}>
                 <p>{movieDuration.hours}hr {movieDuration.minutes}min</p>
-                <div className={"oneMovieFullInfoComponent-container-genres-list"}>
+                <div className={styles.genresList}>
                     {
                         obj.genres.map(g => (<span key={g.id}><Link href={"/genres/" + g.name}>{g.name}</Link> </span>))
                     }
                 </div>
             </div>
             <img src={baseImageUrl + obj.backdrop_path} alt={obj.title}/>
-            <div className={"release-date-and-production-budget"}>
-               <div className={"oneMovieFullInfoComponent-container-release-date"}>
-                   <p>Release date:</p>
-                   {
-                       obj.release_date ? <span>{date.month} {date.day}, {date.year}</span> : <span>Not available</span>
-                   }
-               </div>
-                <div className={"oneMovieFullInfoComponent-container-production-budget"}>
+            <div className={styles.dateAndBudget}>
+                <div className={styles.releaseDate}>
+                    <p>Release date:</p>
+                    {
+                        obj.release_date ? <span>{date.month} {date.day}, {date.year}</span> : <span>Not available</span>
+                    }
+                </div>
+                <div className={styles.productionBudget}>
                     <p>Budget:</p>
                     {
-                        obj.budget ? <span>{obj.budget.toLocaleString()}</span> : <span>Not available</span>
+                        obj.budget ? <span>${obj.budget / 1000000} millions</span> : <span>Not available</span>
                     }
                 </div>
             </div>
-            <div className={"oneMovieFullInfoComponent-container-description"}>{obj.overview}</div>
-            <div className={"oneMovieFullInfoComponent-container-production-companies"}>
+            <div className={styles.description}>{obj.overview}</div>
+            <div className={styles.companies}>
                 <p>Movie companies:</p>
                 {
                     obj.production_companies.map(c => (
@@ -101,22 +103,16 @@ const MoviesListCardComponent:FC<Props> = ({obj}, props: TabPanelProps) => {
                 }
             </div>
 
-            <Box sx={{ width: '100%' }}>
-                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Box sx={{width: '100%'}}>
+                <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
                     <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                        <Tab label="Movie Info" {...a11yProps(0)} />
+                        <Tab label="Reviews" {...a11yProps(0)} />
                         <Tab label="Pictures" {...a11yProps(1)} />
                         <Tab label="Top cats" {...a11yProps(2)} />
                     </Tabs>
                 </Box>
                 <CustomTabPanel value={value} index={0}>
-                    <div>Home page: {obj.homepage}</div>
-                    <div>Release date: {obj.release_date}</div>
-                    <div>Popularity: {obj.popularity}</div>
-                    <div>Revenue: {obj.revenue}</div>
-                    <div>Status: {obj.status}</div>
-                    <div>Vote count: {obj.vote_count}</div>
-                    <div>Vote average: {obj.vote_average}</div>
+                    <ReviewsComponent movieId={obj.id}/>
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={1}>
                     <MoviePictures movieId={obj.id}/>
@@ -125,7 +121,6 @@ const MoviesListCardComponent:FC<Props> = ({obj}, props: TabPanelProps) => {
                     <MoviesActors movieId={obj.id}/>
                 </CustomTabPanel>
             </Box>
-
         </div>
     );
 };

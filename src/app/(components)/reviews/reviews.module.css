@@ -1,0 +1,48 @@
+
+.container{
+    width: 100%;
+}
+
+.reviewsContainer{
+    width: 100%;
+    background-color: rgba(244, 244, 244, 0.96);
+    border-radius: 10px;
+    padding: 15px 20px 15px 25px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.reviewsHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+.reviewsHeader img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.reviewsHeader>div:first-of-type{
+    display: flex;
+    gap: 5px;
+}
+
+.nameAndDate{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.nameAndDate>p:first-child{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.nameAndDate>p:not(:first-child){
+    font-size: 10px;
+    color: #999999;
+}
