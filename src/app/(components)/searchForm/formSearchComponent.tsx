@@ -2,7 +2,6 @@
 import React, {useEffect, useState} from 'react';
 import {apiService} from "@/app/services/api-services";
 import {IMovieShortModel} from "@/app/models/IMovieShortModel";
-// import "./form-search-component-styles.css"
 import Link from "next/link";
 import styles from "./formSearchComponent.module.css"
 import {usePathname} from "next/navigation";
@@ -45,7 +44,6 @@ const FormSearchComponent = () => {
             return
         }
         setIsFormFocused(false)
-        console.log(path)
     }
 
     useEffect(() => {

@@ -21,7 +21,7 @@ body {
 .container{
     margin: 30px auto;
     width: 75%;
-    /*height: 950px;*/
+    height: 1400px;
     display: flex;
 }
 
@@ -87,8 +87,8 @@ a{
 }
 
 .content-container-01{
-    /*max-height: 720px;*/
-    /*overflow: auto;*/
+    max-height: 1100px;
+    overflow: auto;
     padding: 0 20px 0 0;
     display: flex;
     flex-direction: column;

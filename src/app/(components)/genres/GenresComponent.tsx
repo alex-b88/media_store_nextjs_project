@@ -5,32 +5,39 @@ import "./genres-list-styles.css"
 import {apiService} from "@/app/services/api-services";
 import styles from "./genresComponent.module.css"
 import Link from "next/link";
+import {usePathname} from "next/navigation";
+import {useGenres} from "@/app/context/contextProvider";
 
 
 
 const GenresComponent = () => {
 
-    const [genresList, setGenresList] = useState<IGenreModel[]>([])
     const [isVisible, setIsVisible] = useState<boolean>(false)
 
-    const handlerOnClick = () =>{
-        const flag = !isVisible
-        setIsVisible(flag)
+    const genres = useGenres()
+    const currentPath:string = usePathname()
+
+
+    const handlerOnMouseEnter = () =>{
+        setIsVisible(true)
+    }
+
+    const handlerOnMouseLeave = () =>{
+        setIsVisible(false)
     }
 
     useEffect(() => {
-        const res = async() => {
-            return await apiService.genres.getMovieAll().then(res => setGenresList(res))
-        }
-        res()
-    },[])
+        setIsVisible(false)
+    },[currentPath])
+
+
 
     return (
-        <div className={isVisible ? styles.genresContainerHover : styles.genresContainer} onMouseLeave={handlerOnClick} onMouseEnter={handlerOnClick}>
+        <div className={isVisible ? styles.genresContainerHover : styles.genresContainer} onMouseLeave={handlerOnMouseLeave} onMouseEnter={handlerOnMouseEnter}>
             <span className={styles.allGenres}>All genres</span><div className={styles.arrowDown}></div>
             <div className={isVisible ? styles.visible : styles.hidden}>
                 {
-                    genresList.map((obj) => <div key={obj.id}><Link href={"/movies/genre/"+obj.id} className={styles.a}>{obj.name}</Link></div>)
+                    genres.map((obj) => <div key={obj.id}><Link href={"/movies/genre/"+obj.id} className={styles.a}>{obj.name}</Link></div>)
                 }
             </div>
         </div>
