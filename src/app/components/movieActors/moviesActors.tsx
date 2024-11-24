@@ -14,7 +14,6 @@ const MoviesActors:FC<Props> = ({movieId}) => {
 
     const [actingList, setActingList] = useState<ICharacterModel[]>([])
 
-
     useEffect(() => {
         const fetchCreditsByFilmId = async (movieId: number): Promise<ICharacterModel[]> => {
             return await apiService.credits.getCreditsByFilmId(movieId.toString()).then(res => res.cast)
