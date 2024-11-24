@@ -35,7 +35,7 @@ const FormSearchComponent = () => {
     }, [inputValue])
 
 
-    const handlerOnMouseLeave = (event: React.MouseEvent<HTMLFormElement>) =>{
+    const handlerOnMouseLeave = () =>{
         setIsVisible(false)
         setInputValue('')
     }
