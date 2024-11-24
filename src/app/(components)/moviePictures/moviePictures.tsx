@@ -20,8 +20,8 @@ const MoviePictures:FC<Props> = ({movieId}) => {
         fetchCreditsByFilmId(movieId)
             .then(res => setPicsList(res))
     }, []);
-    if(picsList && picsList.backdrops.length > 16){
-        picsList.backdrops = picsList.backdrops.slice(0,16)
+    if(picsList && picsList.backdrops.length > 12){
+        picsList.backdrops = picsList.backdrops.slice(0,12)
     }
     return (
         <div className={styles.moviePicturesContainer}>

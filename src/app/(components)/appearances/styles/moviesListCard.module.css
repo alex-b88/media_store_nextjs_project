@@ -1,0 +1,115 @@
+
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    color: #3a3a3a;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header>p{
+    font-size: 18px;
+    font-weight: 600;
+    color: #3a3a3a;
+}
+
+.header>p>span:first-child{
+    color: dodgerblue;
+}
+
+.container>img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.durationAndCategories{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.genresList{
+    display: flex;
+    gap: 5px;
+}
+
+.durationAndCategories>p:first-child, .genresList>span{
+    color: white;
+    font-size: 14px;
+    background-color: cornflowerblue;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.genresList>span>a{
+    color: white;
+}
+
+.productionCompanies{
+    width: 100%;
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.budget{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.releaseDate, .budget{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.releaseDate>span{
+    color: white;
+    font-size: 12px;
+    background-color: darkslateblue;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.productionCompanies>p, .budget>p, .releaseDate>p{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.productionCompanies>div{
+    color: white;
+    font-size: 12px;
+    background-color: rgba(35, 139, 177, 0.98);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.budget>span{
+    color: white;
+    font-size: 12px;
+    background-color: lightseagreen;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.tagLine{
+    margin-top: -20px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+}
