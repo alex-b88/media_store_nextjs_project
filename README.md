@@ -26,7 +26,6 @@
 
 - [Next.js](https://nextjs.org/)
 - [React](https://reactjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
 - [Material-UI](https://mui.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - и другие...
