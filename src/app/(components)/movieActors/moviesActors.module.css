@@ -1,0 +1,40 @@
+
+.movieActorsContainer {
+    width: 100%;
+}
+
+.actorsList{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.oneActorContainer{
+    width: 115px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.oneActorContainer>img{
+    width: 100%;
+    height: 140px;
+}
+
+.actorInfo{
+    display: block;
+
+}
+
+.hidden{
+    display: none;
+}
+
+.actorName{
+    font-size: 14px;
+    font-weight: 600;
+    color: #3a3a3a;
+}

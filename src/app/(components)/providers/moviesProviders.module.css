@@ -1,0 +1,51 @@
+
+.providerContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.providersList{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+.logoProvider{
+    width: 80px;
+    height: 50px;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.logoProvider>img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.containerHeader{
+    color: #3a3a3a;
+    font-weight: 600;
+}
+
+.hoverCover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.37);
+    width: 100%;
+    height: 100%;
+}
+
+.logoProvider:hover{
+    .hoverCover{
+        display: none;
+    }
+}

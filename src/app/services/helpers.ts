@@ -1,4 +1,4 @@
-import {IDate} from "@/app/models/IDate";
+import {IDateModel} from "@/app/models/IDateModel";
 import {IGenreModel} from "@/app/models/IGenreModel";
 
 export const RuntimeConverter = (duration:number) => {
@@ -23,7 +23,7 @@ export const truncateTextByCharacters = (text: string, characterLimit: number): 
 }
 
 
-export const getReleaseDate = (date:string): IDate =>{
+export const getReleaseDate = (date:string): IDateModel =>{
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const dateObj = new Date(date);
     return {

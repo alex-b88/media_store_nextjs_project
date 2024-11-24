@@ -36,7 +36,7 @@
 
 .genre{
     color: white;
-    padding: 5px;
+    padding: 3px 8px;
     border-radius: 5px;
     background-color: dodgerblue;
     font-size: 12px;
@@ -62,7 +62,7 @@
 
 .popularity{
     color: white;
-    padding: 5px;
+    padding: 3px 8px;
     border-radius: 5px;
     background-color: lightseagreen;
     font-size: 12px;

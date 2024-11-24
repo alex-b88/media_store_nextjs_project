@@ -1,25 +1,71 @@
-import React, {FC} from 'react';
+'use client'
+import React, {FC, ReactNode} from 'react';
 import {IMovieFullModel} from "@/app/models/IMovieFullModel";
 import {baseImageUrl} from "@/app/services/settings";
 import "./styles/moviesListCard-styles.css"
-import {RuntimeConverter} from "@/app/services/helpers";
+import {getReleaseDate, RuntimeConverter} from "@/app/services/helpers";
 import Link from "next/link";
+import RatingComponent from "@/app/(components)/rating/ratingComponent";
+import MoviesActors from "@/app/(components)/movieActors/moviesActors";
+
+
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
+import MoviePictures from "@/app/(components)/moviePictures/moviePictures";
 
 type Props = {
     obj: IMovieFullModel;
 }
 
+type TabPanelProps = {
+    children?: ReactNode;
+    index: number;
+    value: number;
+}
+
 //один фильм полностью инфо
-const MoviesListCardComponent:FC<Props> = ({obj}) => {
+const MoviesListCardComponent:FC<Props> = ({obj}, props: TabPanelProps) => {
 
+    const date = getReleaseDate(obj.release_date);
+
+    // tabs import
     const movieDuration = RuntimeConverter(obj.runtime);
+    const [value, setValue] = React.useState(0);
+    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+        setValue(newValue);
+    };
 
+    function CustomTabPanel(props: TabPanelProps) {
+        const { children, value, index, ...other } = props;
+
+        return (
+            <div
+                role="tabpanel"
+                hidden={value !== index}
+                id={`simple-tabpanel-${index}`}
+                aria-labelledby={`simple-tab-${index}`}
+                {...other}
+            >
+                {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+            </div>
+        );
+    }
+
+    function a11yProps(index: number) {
+        return {
+            id: `simple-tab-${index}`,
+            'aria-controls': `simple-tabpanel-${index}`,
+        };
+    }
+    // tabs import
 
     return (
         <div className={"oneMovieFullInfoComponent-container"}>
             <div className={"oneMovieFullInfoComponent-container-header"}>
                 <h2>{obj.title}</h2>
-                <p><span>{obj.vote_average ? obj.vote_average.toFixed(1):0} </span>/10</p>
+                {/*<p><span>{obj.vote_average ? obj.vote_average.toFixed(1):0} </span>/10</p>*/}
+                <div><span>{obj.vote_average ? <RatingComponent rating={obj.vote_average.toFixed(1).toString()}/> : <RatingComponent rating={'0'}/>} </span></div>
             </div>
             <p className={"oneMovieFullInfoComponent-container-tagLine"}>{obj.tagline}</p>
             <div className={"duration-and-categories"}>
@@ -31,9 +77,19 @@ const MoviesListCardComponent:FC<Props> = ({obj}) => {
                 </div>
             </div>
             <img src={baseImageUrl + obj.backdrop_path} alt={obj.title}/>
-            <div className={"oneMovieFullInfoComponent-container-production-budget"}>
-                <p>Budget:</p>
-                <span>${obj.budget}</span>
+            <div className={"release-date-and-production-budget"}>
+               <div className={"oneMovieFullInfoComponent-container-release-date"}>
+                   <p>Release date:</p>
+                   {
+                       obj.release_date ? <span>{date.month} {date.day}, {date.year}</span> : <span>Not available</span>
+                   }
+               </div>
+                <div className={"oneMovieFullInfoComponent-container-production-budget"}>
+                    <p>Budget:</p>
+                    {
+                        obj.budget ? <span>{obj.budget.toLocaleString()}</span> : <span>Not available</span>
+                    }
+                </div>
             </div>
             <div className={"oneMovieFullInfoComponent-container-description"}>{obj.overview}</div>
             <div className={"oneMovieFullInfoComponent-container-production-companies"}>
@@ -44,13 +100,31 @@ const MoviesListCardComponent:FC<Props> = ({obj}) => {
                     ))
                 }
             </div>
-            <div>Home page: {obj.homepage}</div>
-            <div>Release date: {obj.release_date}</div>
-            <div>Popularity: {obj.popularity}</div>
-            <div>Revenue: {obj.revenue}</div>
-            <div>Status: {obj.status}</div>
-            <div>Vote count: {obj.vote_count}</div>
-            <div>Vote average: {obj.vote_average}</div>
+
+            <Box sx={{ width: '100%' }}>
+                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                    <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                        <Tab label="Movie Info" {...a11yProps(0)} />
+                        <Tab label="Pictures" {...a11yProps(1)} />
+                        <Tab label="Top cats" {...a11yProps(2)} />
+                    </Tabs>
+                </Box>
+                <CustomTabPanel value={value} index={0}>
+                    <div>Home page: {obj.homepage}</div>
+                    <div>Release date: {obj.release_date}</div>
+                    <div>Popularity: {obj.popularity}</div>
+                    <div>Revenue: {obj.revenue}</div>
+                    <div>Status: {obj.status}</div>
+                    <div>Vote count: {obj.vote_count}</div>
+                    <div>Vote average: {obj.vote_average}</div>
+                </CustomTabPanel>
+                <CustomTabPanel value={value} index={1}>
+                    <MoviePictures movieId={obj.id}/>
+                </CustomTabPanel>
+                <CustomTabPanel value={value} index={2}>
+                    <MoviesActors movieId={obj.id}/>
+                </CustomTabPanel>
+            </Box>
 
         </div>
     );

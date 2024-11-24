@@ -57,7 +57,7 @@
     color: white;
 }
 
-.oneMovieFullInfoComponent-container-production-companies, .oneMovieFullInfoComponent-container-production-budget{
+.oneMovieFullInfoComponent-container-production-companies{
     width: 100%;
     display: flex;
     gap: 7px;
@@ -65,11 +65,28 @@
     align-items: center;
 }
 
-.oneMovieFullInfoComponent-container-production-budget{
-    justify-content: flex-end;
+.release-date-and-production-budget{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
-.oneMovieFullInfoComponent-container-production-companies>p, .oneMovieFullInfoComponent-container-production-budget>p{
+.oneMovieFullInfoComponent-container-release-date, .oneMovieFullInfoComponent-container-production-budget{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.oneMovieFullInfoComponent-container-release-date>span{
+    color: white;
+    font-size: 12px;
+    background-color: darkslateblue;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.oneMovieFullInfoComponent-container-production-companies>p, .oneMovieFullInfoComponent-container-production-budget>p, .oneMovieFullInfoComponent-container-release-date>p{
     font-size: 14px;
     font-weight: 600;
 }

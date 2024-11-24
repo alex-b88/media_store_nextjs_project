@@ -29,7 +29,7 @@ const OneMovieShortComponent = async() => {
                             obj.genres.map(g => (<span key={g.id}>{g.name}</span>))
                         }
                     </div>
-                    <div className={"one-movie-short-container__info-movie-description"}>{obj.overview} <Link href={'/movies/'+obj.id}><span> Check more</span></Link></div>
+                    <div className={"one-movie-short-container__info-movie-description"}>{obj.overview} <Link href={'/movies/'+obj.id}><span> Check more...</span></Link></div>
                 </div>
             </div>
         </div>
