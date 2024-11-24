@@ -1,7 +1,7 @@
 
 .genresContainer{
     position: relative;
-    width: 120px;
+    width: 123px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +12,7 @@
 
 .genresContainerHover{
     position: relative;
-    width: 120px;
+    width: 123px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,9 +24,27 @@
     cursor: pointer;
 }
 
-.genresContainer:hover{
+.visible{
+    width: 118px;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5px;
+    padding: 10px 10px 15px 12px;
+    /*background-color: white;*/
+    background-color: rgba(244, 244, 244, 0.96);
+    border-radius: 0 0 20px 20px;
+    z-index: 2;
     cursor: pointer;
 }
+
+/*.genresContainer:hover{*/
+/*    cursor: pointer;*/
+/*}*/
 
 .arrowDown:hover{
     background-image: url("../../images/keyboard_arrow_down-hover.svg");
@@ -51,24 +69,6 @@
 
 .hidden{
     display: none;
-}
-
-.visible{
-    width: 120px;
-    position: absolute;
-    left: 0;
-    top: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 5px;
-    padding: 10px 10px 15px 12px;
-    /*background-color: white;*/
-    background-color: rgba(244, 244, 244, 0.96);
-    border-radius: 0 0 20px 20px;
-    z-index: 2;
-    cursor: pointer;
 }
 
 .a{

@@ -6,7 +6,7 @@ import {baseImageUrl} from "@/app/services/settings";
 const MoviesProvidersComponent = async () => {
 
     const list = await apiService.getProvider().then(res => res.results.slice(0, 17))
-    console.log(list);
+
     return (
         <div className={styles.providerContainer}>
             <p className={styles.containerHeader}>Providers: </p>

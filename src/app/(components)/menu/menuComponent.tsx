@@ -1,15 +1,14 @@
 'use client'
 import React from 'react';
+import styles from "./menu.module.css"
 
 const MenuComponent = () => {
 
-
-
     return (
-        <div className={"main-menu"}>
+        <div className={styles.container}>
             <button onClick={() => {
                 window.location.href = "/";
-            }}>Main
+            }}>Main page
             </button>
         </div>
     );

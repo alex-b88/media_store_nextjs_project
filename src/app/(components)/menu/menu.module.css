@@ -1,0 +1,20 @@
+
+.container{
+}
+
+.container>button{
+    width: 75px;
+    height: 40px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 3;
+    border: none;
+    color: #3a3a3a;
+    background: none;
+}
+
+.container>button:hover{
+    cursor: pointer;
+    color: dodgerblue;
+}
