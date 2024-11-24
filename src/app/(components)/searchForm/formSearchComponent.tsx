@@ -11,8 +11,6 @@ const FormSearchComponent = () => {
     const [inputValue, setInputValue] = useState<string>('')
     const [searchResults, setSearchResults] = useState<IMovieShortModel[]>([])
     const [isVisible, setIsVisible] = useState<boolean>(false)
-    const [path, setPath] = useState<string>('')
-    const [isFormFocused, setIsFormFocused] = useState<boolean>(false)
 
     const currentPath:string = usePathname()
 
@@ -36,32 +34,27 @@ const FormSearchComponent = () => {
         }
     }, [inputValue])
 
-    const handleFocus = () => {
-        setIsFormFocused(true)
-    }
-    const handleBlur = (event: React.FocusEvent<HTMLFormElement>) => {
-        if (event.currentTarget.contains(event.relatedTarget as Node)) {
-            return
-        }
-        setIsFormFocused(false)
+
+    const handlerOnMouseLeave = (event: React.MouseEvent<HTMLFormElement>) =>{
+        setIsVisible(false)
+        setInputValue('')
     }
 
     useEffect(() => {
         setInputValue('')
         setSearchResults([])
-        setPath(currentPath)
         setIsVisible(false)
-    }, [currentPath,isFormFocused])
+    }, [currentPath])
 
 
 
     return (
         <div className={styles.component}>
-            <form className={styles.form} onClick={handleFocus} onBlur={handleBlur}>
+            <form className={styles.form} onMouseLeave={handlerOnMouseLeave}>
                 <div className={styles.searchIcon}></div>
                 <input type="text" value={inputValue} onChange={handleInputChange} placeholder={"Search your" +
                     " interesting..."} className={styles.input}/>
-                <div className={inputValue.length > 0 ? styles.visible : styles.hidden}>
+                <div className={isVisible ? styles.visible : styles.hidden}>
                     {
                         searchResults && searchResults.length > 0 ? searchResults.map((obj) =>
                             <div key={obj.id} className={styles.resultsItem}>
