@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import WhatsNewComponent from "@/app/(components)/appearances/whatsNewComponent";
-import TopRatedMoviesComponent from "@/app/(components)/appearances/topRatedMoviesComponent";
+import WhatsNewComponent from "@/app/components/appearances/whatsNewComponent";
+import TopRatedMoviesComponent from "@/app/components/appearances/topRatedMoviesComponent";
 import React from "react";
-import HeaderComponent from "@/app/(components)/header/headerComponent";
+import HeaderComponent from "@/app/components/header/headerComponent";
 
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import ContextProvider from "@/app/context/contextProvider";
@@ -41,7 +41,7 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
             </ContextProvider>
           </div>
         </AppRouterCacheProvider>
-      </div>
+    </div>
 
       </body>
     </html>

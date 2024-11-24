@@ -1,5 +1,5 @@
 import {apiService} from "@/app/services/api-services";
-import MoviesListCardComponent from "@/app/(components)/appearances/moviesListCardComponent";
+import MoviesListCardComponent from "@/app/components/appearances/moviesListCardComponent";
 import Layout from "@/app/(pages)/movies/[id]/layout";
 
 

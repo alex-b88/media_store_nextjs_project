@@ -4,7 +4,7 @@ import styles from "./reviews.module.css"
 import {IReviewsModel} from "@/app/models/IReviewsModel";
 import {apiService} from "@/app/services/api-services";
 import {baseImageUrl} from "@/app/services/settings";
-import RatingComponent from "@/app/(components)/rating/ratingComponent";
+import RatingComponent from "@/app/components/rating/ratingComponent";
 import { format } from 'date-fns';
 import {truncateTextByWords} from "@/app/services/helpers";
 import noAvatarImage from '../../images/noAvatar.png';
@@ -28,7 +28,7 @@ const ReviewsComponent:FC<Props> = ({movieId}) => {
     return (
         <div className={styles.container}>
             {
-                reviewsList && reviewsList.results.map(obj => (
+                reviewsList?.results.length ? reviewsList.results.map(obj => (
                     <div key={obj.id} className={styles.reviewsContainer}>
                         <div className={styles.reviewsHeader}>
                             <div>
@@ -45,7 +45,7 @@ const ReviewsComponent:FC<Props> = ({movieId}) => {
                         </div>
                         <p>{truncateTextByWords(obj.content, 50)}</p>
                     </div>
-                ))
+                )) : <p>No reviews yet...</p>
             }
         </div>
     );

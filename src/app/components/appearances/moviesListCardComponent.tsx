@@ -4,16 +4,16 @@ import {IMovieFullModel} from "@/app/models/IMovieFullModel";
 import {baseImageUrl} from "@/app/services/settings";
 import {getReleaseDate, RuntimeConverter} from "@/app/services/helpers";
 import Link from "next/link";
-import RatingComponent from "@/app/(components)/rating/ratingComponent";
-import MoviesActors from "@/app/(components)/movieActors/moviesActors";
+import RatingComponent from "@/app/components/rating/ratingComponent";
+import MoviesActors from "@/app/components/movieActors/moviesActors";
 import styles from "./styles/moviesListCard.module.css"
 
 
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import MoviePictures from "@/app/(components)/moviePictures/moviePictures";
-import ReviewsComponent from "@/app/(components)/reviews/reviewsComponent";
+import MoviePictures from "@/app/components/moviePictures/moviePictures";
+import ReviewsComponent from "@/app/components/reviews/reviewsComponent";
 
 type Props = {
     obj: IMovieFullModel;

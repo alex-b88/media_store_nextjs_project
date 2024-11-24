@@ -1,6 +1,6 @@
 import React from 'react';
-import GenresComponent from "@/app/(components)/genres/GenresComponent";
-import UserComponent from "@/app/(components)/user/UserComponent";
+import GenresComponent from "@/app/components/genres/GenresComponent";
+import UserComponent from "@/app/components/user/UserComponent";
 
 
 const LeftSideComponent = () => {

@@ -43,7 +43,7 @@ a{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 10px;
+    gap: 20px;
     /*--------*/
 }
 
@@ -72,7 +72,8 @@ a{
     display: flex;
     flex-direction: column;
     width: 75%;
-    gap: 30px;
+    gap: 50px;
+
 }
 
 .right-sidebar{
