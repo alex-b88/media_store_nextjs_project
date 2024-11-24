@@ -4,6 +4,7 @@ import styles from "./moviesActors.module.css"
 import {baseImageUrl} from "@/app/services/settings";
 import {ICharacterModel} from "@/app/models/ICharacterModel";
 import {truncateTextByCharacters} from "@/app/services/helpers";
+import noAvatarImage from '../../images/noAvatar.png';
 
 type Props = {
     movieId: number;
@@ -28,7 +29,7 @@ const MoviesActors:FC<Props> = ({movieId}) => {
                 {
                     actingList && actingList.map(obj => ( obj.original_name &&
                         <div className={styles.oneActorContainer} key={obj.id}>
-                            <img src={baseImageUrl + obj.profile_path} alt={obj.name}/>
+                            <img src={obj.profile_path ? baseImageUrl + obj.profile_path : noAvatarImage.src} alt={obj.name}/>
                             <div className={styles.actorName}>{truncateTextByCharacters(obj.original_name, 13)}</div>
                         </div>
                     ))
