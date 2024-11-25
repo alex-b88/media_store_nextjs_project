@@ -9,9 +9,12 @@ import {useGenres} from "@/app/context/contextProvider";
 import {apiService} from "@/app/services/api-services";
 import {usePathname, useSearchParams} from "next/navigation";
 
+type Props = {
+    getPagesCount: (pageNumbers: number) => void;
+}
 
 //компонент для отображения фильмов списком
-const MoviesListComponent = () => {
+const MoviesListComponent:FC<Props> = ({getPagesCount}) => {
 
     const genres = useGenres();
     const [list, setList] = useState<IMovieShortModel[]>([])
@@ -29,6 +32,7 @@ const MoviesListComponent = () => {
             if (pathname.includes('genre') && cat !== undefined) {
                 apiService.moviesearch.getByGenre(cat, pageNum).then((response) => {
                     setList(response.results)
+                    getPagesCount(response.total_pages)
                 })
             }
             else{
@@ -36,25 +40,27 @@ const MoviesListComponent = () => {
                     case 'popular':{
                         apiService.moviesearch.getPopular(pageNum).then((response) => {
                             setList(response.results)
+                            getPagesCount(response.total_pages)
                         })
                         break;
                     }
                     case 'upcoming':{
                         apiService.moviesearch.getUpComingMovies(pageNum).then((response) => {
                             setList(response.results)
+                            getPagesCount(response.total_pages)
                         })
                         break;
                     }
                     case 'top-rated':{
                         apiService.moviesearch.getTopRatedThisWeek(pageNum).then((response) => {
                             setList(response.results)
+                            getPagesCount(response.total_pages)
                         })
                         break;
                     }
                 }
             }
     }, [pageNum]);
-
 
     return (
         <div className={styles.oneObjContainer}>

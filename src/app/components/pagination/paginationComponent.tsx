@@ -2,11 +2,15 @@
 import * as React from 'react';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
-import {useCallback} from "react";
+import {FC, useCallback} from "react";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 
 
-const PaginationComponent = () => {
+type Props = {
+    pagesCount:number;
+}
+
+const PaginationComponent:FC<Props> = ({pagesCount}) => {
 
     const router = useRouter();
     const pathname = usePathname()
@@ -23,6 +27,10 @@ const PaginationComponent = () => {
         [searchParams]
     )
 
+    if(pagesCount > 500){
+        pagesCount = 500
+    }
+
 
     const onClickHandler = (_: React.ChangeEvent<unknown>, value: number) => {
         router.push(pathname + '?' + createQueryString('page', value.toString()))
@@ -30,7 +38,7 @@ const PaginationComponent = () => {
 
     return (
         <Stack spacing={2}>
-            <Pagination count={500} page={+pageNum} variant="outlined" shape="rounded" onChange={onClickHandler}/>
+            <Pagination count={pagesCount} page={+pageNum} variant="outlined" shape="rounded" onChange={onClickHandler}/>
         </Stack>
     );
 }

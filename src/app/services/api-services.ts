@@ -62,7 +62,7 @@ export const apiService = {
                 .catch(err => console.error(err))
         },
         getUpComingMovies: async (page:string):Promise<IResponseModel & {results:IMovieShortModel[]}> => {
-            return await fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=${page}&region=ua`, options)
+            return await fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=${page}`, options)
                 .then(res => res.json())
                 .catch(err => console.error(err))
         },

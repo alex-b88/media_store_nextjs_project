@@ -22,7 +22,6 @@ const UserComponent =  ()  => {
         }
     }, []);
 
-    console.log(user);
     return (
         <div className={styles.container} onMouseOver={() => setIsVisible(true)} onMouseLeave={() => setIsVisible(false)}>
                 <img src={imagePath} alt={user?.name}/>
