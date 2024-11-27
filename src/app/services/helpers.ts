@@ -1,7 +1,7 @@
 import {IDateModel} from "@/app/models/IDateModel";
 import {IGenreModel} from "@/app/models/IGenreModel";
 
-export const RuntimeConverter = (duration:number) => {
+export const RuntimeConverter = (duration:number):{hours:number, minutes:number} => {
     const h = Math.floor(duration / 60);
     const m = duration % 60;
     return {hours: h, minutes: m}

@@ -74,7 +74,7 @@ const MoviesListCardComponent:FC<Props> = ({obj}, props: TabPanelProps) => {
                 <p>{movieDuration.hours}hr {movieDuration.minutes}min</p>
                 <div className={styles.genresList}>
                     {
-                        obj.genres.map(g => (<span key={g.id}><Link href={"/genres/" + g.name}>{g.name}</Link> </span>))
+                        obj.genres.map(g => (<span key={g.id}><Link href={"/movies/genre/" + g.id}>{g.name}</Link> </span>))
                     }
                 </div>
             </div>

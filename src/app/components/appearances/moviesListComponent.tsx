@@ -8,6 +8,7 @@ import Link from "next/link";
 import {useGenres} from "@/app/context/contextProvider";
 import {apiService} from "@/app/services/api-services";
 import {usePathname, useSearchParams} from "next/navigation";
+import {IGenreModel} from "@/app/models/IGenreModel";
 
 type Props = {
     getPagesCount: (pageNumbers: number) => void;
@@ -16,18 +17,18 @@ type Props = {
 //компонент для отображения фильмов списком
 const MoviesListComponent:FC<Props> = ({getPagesCount}) => {
 
-    const genres = useGenres();
+    const genres:IGenreModel[] = useGenres();
     const [list, setList] = useState<IMovieShortModel[]>([])
-    const [path, setPath] = useState<string>()
-    const pathname = usePathname()
-    const cat = pathname.split('/').pop()
+    // const [path, setPath] = useState<string>()
+    const pathname:string = usePathname()
+    const cat:string | undefined = pathname.split('/').pop()
 
     const searchParams = useSearchParams()
     const pageNum = searchParams.get('page') || '1';
 
 
     useEffect(() => {
-            setPath(pageNum)
+            // setPath(pageNum)
 
             if (pathname.includes('genre') && cat !== undefined) {
                 apiService.moviesearch.getByGenre(cat, pageNum).then((response) => {
