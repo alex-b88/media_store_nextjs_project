@@ -3,13 +3,15 @@ import "./styles/popular-list-component-styles.css"
 import Link from "next/link";
 import {truncateTextByCharacters} from "@/app/services/helpers";
 import {apiService} from "@/app/services/api-services";
+import {IMovieShortModel} from "@/app/models/IMovieShortModel";
+import {IResponseModel} from "@/app/models/IResponseModel";
 
 
 const PopularMoviesComponent = async() => {
 
-    const response = await apiService.moviesearch.getPopular('1')
+    const response:IResponseModel & {results:IMovieShortModel[]} = await apiService.moviesearch.getPopular('1')
 
-    const moviesSliced = response.results.slice(1, 8);
+    const moviesSliced:IMovieShortModel[] = response.results.slice(1, 8);
 
 
     return (

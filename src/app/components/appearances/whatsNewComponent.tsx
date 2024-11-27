@@ -4,13 +4,14 @@ import {imagePathW400} from "@/app/services/settings";
 import {getReleaseDate, truncateTextByWords} from "@/app/services/helpers";
 import Link from "next/link";
 import {apiService} from "@/app/services/api-services";
+import {IDateModel} from "@/app/models/IDateModel";
 
 const WhatsNewComponent= async() => {
 
     const movie = await apiService.moviesearch.getOneMovieShort("402431");
 
-    const shortDecription = truncateTextByWords(movie.overview, 20)
-    const date = getReleaseDate(movie.release_date);
+    const shortDecription:string = truncateTextByWords(movie.overview, 20)
+    const date:IDateModel = getReleaseDate(movie.release_date);
 
     return (
         <div className={"whats-new-block"}>

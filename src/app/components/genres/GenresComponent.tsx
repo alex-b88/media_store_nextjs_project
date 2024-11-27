@@ -4,6 +4,7 @@ import styles from "./genresComponent.module.css"
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 import {useGenres} from "@/app/context/contextProvider";
+import {IGenreModel} from "@/app/models/IGenreModel";
 
 
 
@@ -11,7 +12,7 @@ const GenresComponent = () => {
 
     const [isVisible, setIsVisible] = useState<boolean>(false)
 
-    const genres = useGenres()
+    const genres:IGenreModel[] = useGenres()
     const currentPath:string = usePathname()
 
 

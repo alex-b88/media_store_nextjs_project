@@ -2,10 +2,11 @@ import React from 'react';
 import styles from "./moviesProviders.module.css"
 import {apiService} from "@/app/services/api-services";
 import {baseImageUrl} from "@/app/services/settings";
+import {IMovieProviderModel} from "@/app/models/IMovieProviderModel";
 
 const MoviesProvidersComponent = async () => {
 
-    const list = await apiService.getProvider().then(res => res.results.slice(0, 17))
+    const list:IMovieProviderModel[] = await apiService.getProvider().then(res => res.results.slice(0, 17))
 
     return (
         <div className={styles.providerContainer}>

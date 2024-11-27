@@ -3,12 +3,14 @@ import Link from "next/link";
 import {imagePath600x900} from "@/app/services/settings";
 import "./styles/upcoming-movie-styles.css"
 import {apiService} from "@/app/services/api-services";
+import {IMovieShortModel} from "@/app/models/IMovieShortModel";
+import {IResponseModel} from "@/app/models/IResponseModel";
 
 
 const UpComingMoviesComponent = async () => {
 
-    const response = await apiService.moviesearch.getUpComingMovies("1")
-    const moviesSliced = response.results.slice(1, 8);
+    const response:IResponseModel & {results:IMovieShortModel[]} = await apiService.moviesearch.getUpComingMovies("1")
+    const moviesSliced:IMovieShortModel[] = response.results.slice(1, 8);
 
     return (
         <div className={"upcoming-list"}>

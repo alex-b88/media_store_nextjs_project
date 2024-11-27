@@ -14,7 +14,7 @@ const FormSearchComponent = () => {
 
     const currentPath:string = usePathname()
 
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>):void => {
         setInputValue(event.target.value)
     }
 

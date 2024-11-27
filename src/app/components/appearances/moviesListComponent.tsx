@@ -7,7 +7,7 @@ import {getSlicedGenres, truncateTextByWords} from "@/app/services/helpers";
 import Link from "next/link";
 import {useGenres} from "@/app/context/contextProvider";
 import {apiService} from "@/app/services/api-services";
-import {usePathname, useSearchParams} from "next/navigation";
+import {ReadonlyURLSearchParams, usePathname, useSearchParams} from "next/navigation";
 import {IGenreModel} from "@/app/models/IGenreModel";
 
 type Props = {
@@ -23,8 +23,8 @@ const MoviesListComponent:FC<Props> = ({getPagesCount}) => {
     const pathname:string = usePathname()
     const cat:string | undefined = pathname.split('/').pop()
 
-    const searchParams = useSearchParams()
-    const pageNum = searchParams.get('page') || '1';
+    const searchParams:ReadonlyURLSearchParams = useSearchParams()
+    const pageNum:string = searchParams.get('page') || '1';
 
 
     useEffect(() => {

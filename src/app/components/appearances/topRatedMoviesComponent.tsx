@@ -2,11 +2,13 @@ import React from 'react';
 import {apiService} from "@/app/services/api-services";
 import Link from "next/link";
 import "./styles/top-rated-list-styles.css"
+import {IMovieShortModel} from "@/app/models/IMovieShortModel";
+import {IResponseModel} from "@/app/models/IResponseModel";
 
 const TopRatedMoviesComponent = async () => {
 
-    const response = await apiService.moviesearch.getTopRatedThisWeek("1")
-    const moviesSliced = response.results.slice(0, 10);
+    const response:IResponseModel & {results:IMovieShortModel[]} = await apiService.moviesearch.getTopRatedThisWeek("1")
+    const moviesSliced:IMovieShortModel[] = response.results.slice(0, 10);
 
     return (
         <div className={"top-rated-block"}>

@@ -3,14 +3,15 @@ import "./styles/one-movie-short-styles.css"
 import {RuntimeConverter} from "@/app/services/helpers";
 import Link from "next/link";
 import {apiService} from "@/app/services/api-services";
+import {IMovieFullModel} from "@/app/models/IMovieFullModel";
 
 
 
 //компонент для отображения одного фильма, короткая версия
 const OneMovieShortComponent = async() => {
 
-    const obj = await apiService.moviesearch.getOneMovieFull("912649");
-    const movieDuration = RuntimeConverter(obj.runtime);
+    const obj:IMovieFullModel = await apiService.moviesearch.getOneMovieFull("912649");
+    const movieDuration:{hours:number, minutes:number} = RuntimeConverter(obj.runtime);
 
     return (
         <div className={"one-movie-short-container"}>

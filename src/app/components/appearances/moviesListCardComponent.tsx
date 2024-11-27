@@ -14,6 +14,7 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import MoviePictures from "@/app/components/moviePictures/moviePictures";
 import ReviewsComponent from "@/app/components/reviews/reviewsComponent";
+import {IDateModel} from "@/app/models/IDateModel";
 
 type Props = {
     obj: IMovieFullModel;
@@ -28,10 +29,10 @@ type TabPanelProps = {
 //один фильм полностью инфо
 const MoviesListCardComponent:FC<Props> = ({obj}, props: TabPanelProps) => {
 
-    const date = getReleaseDate(obj.release_date);
+    const date:IDateModel = getReleaseDate(obj.release_date);
 
     // tabs import
-    const movieDuration = RuntimeConverter(obj.runtime);
+    const movieDuration:{hours:number, minutes:number} = RuntimeConverter(obj.runtime);
     const [value, setValue] = React.useState(0);
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);

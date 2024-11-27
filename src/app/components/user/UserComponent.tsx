@@ -11,7 +11,7 @@ const UserComponent =  ()  => {
     const [isVisible, setIsVisible] = useState<boolean>(false)
     const [user, setUser] = useState<IUserModel | null>(null)
 
-    const imagePath = baseImageUrl + user?.avatar.tmdb.avatar_path;
+    const imagePath:string = baseImageUrl + user?.avatar.tmdb.avatar_path;
 
     useEffect(() => {
         const fetchData = async () => {
