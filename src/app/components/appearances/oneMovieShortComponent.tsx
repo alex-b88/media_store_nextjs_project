@@ -4,6 +4,7 @@ import {RuntimeConverter} from "@/app/services/helpers";
 import Link from "next/link";
 import {apiService} from "@/app/services/api-services";
 import {IMovieFullModel} from "@/app/models/IMovieFullModel";
+import React from "react";
 
 
 
@@ -25,9 +26,9 @@ const OneMovieShortComponent = async() => {
                         <p className={"one-movie-short-container__info-title-and-score"}><span>{obj.vote_average?.toFixed(1)}</span><span>/10</span></p>
                     </div>
                     <div className={"cats-duration"}>
-                        <span>{movieDuration.hours}hr {movieDuration.minutes}min</span>
+                        <span className={"cats-duration-duration"}>{movieDuration.hours}hr {movieDuration.minutes}min</span>
                         {
-                            obj.genres.map(g => (<span key={g.id}>{g.name}</span>))
+                            obj.genres.map(g => (<span key={g.id}><Link href={"/movies/genre/" + g.id}>{g.name}</Link></span>))
                         }
                     </div>
                     <div className={"one-movie-short-container__info-movie-description"}>{obj.overview} <Link href={'/movies/'+obj.id}><span> Check more...</span></Link></div>
